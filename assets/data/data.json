@@ -1,0 +1,705 @@
+{
+    "mecanica": [
+        {
+            "key": "ABA",
+            "value": "ARMADO DE BULLDOZER AUTOMATICO",
+            "synonyms": [
+                "ARMADO DE BULLDOZER AUTOMATICAMENTE"
+            ]
+        },
+        {
+            "key": "ABS",
+            "value": "SISTEMA DE FRENOS ANTIBLOQUEO"
+        },
+        {
+            "key": "ACERT",
+            "value": "TECNOLOGIA AVANZADA DE REDUCCION DE EMISION DE GASES DE LA COMBUSTION",
+            "synonyms": [
+                "TECNOLOGIA AVANZADA DE REDUCCION DE LA EMISION DE GASES DE COMBUSTION",
+                "TECNOLOGIA AVANZADA DE REDUCCION DE LA EMISION DE GASES DE LA COMBUSTION",
+                "TECNOLOGIA AVANZADA DE REDUCCION DE EMISION DE GASES DE LA COMBUSTION",
+                "TECNOLOGIA AVANZADA CONTRA LA EMISION DE GASES DE COMBUSTION",
+                "TECNOLOGIA AVANZADA CONTRA LA EMISION DE GASES DE LA COMBUSTION",
+                "TECNOLOGIA AVANZADA DE REDUCCIONES DE LA EMISIONES DE GASES DE COMBUSTION",
+                "TECNOLOGIA AVANZADA DE REDUCCIONES DE EMISIONES DE GASES DE LA COMBUSTION",
+                "TECNOLOGIA AVANZADA CONTRA LAS EMISIONES DE GASES DE COMBUSTION",
+                "TECNOLOGIA AVANZADA CONTRA LAS EMISIONES DE GASES DE LA COMBUSTION"
+            ]
+        },
+        {
+            "key": "ADEM I",
+            "value": "SISTEMA AUTOMATICO DE INYECCION DE COMBUSTIBLE SEGUN LA ALTURA",
+            "synonyms": [
+                "SISTEMA AUTOMATICO DE LA INYECCION DE COMBUSTIBLE SEGUN LA ALTURA"
+            ]
+        },
+        {
+            "key": "ADEM II",
+            "value": "SISTEMA AVANZADO DE ADMINISTRACION DE MOTORES DIESEL",
+            "synonyms": [
+                "SISTEMA AVANZADO DE ADMINISTRACION DE LOS MOTORES DIESEL",
+                "SISTEMA AVANZADO DE ADMINISTRACION DEL MOTOR DIESEL"
+            ]
+        },
+        {
+            "key": "AEC",
+            "value": "CONTROL AUTOMATICO DEL MOTOR"
+        },
+        {
+            "key": "AFEX",
+            "value": "SISTEMA AUTOMATICO CONTRA INCENDIOS"
+        },
+        {
+            "key": "AFTER COOLER",
+            "value": "POST ENFRIAMIENTO DE AIRE DE ADMISION",
+            "synonyms": [
+                "POST ENFRIAMIENTO DEL AIRE DE ADMISION",
+                "POST ENFRIADOR DEL AIRE DE ADMISION",
+                "POST ENFRIADOR DE AIRE DE ADMISION"
+            ]
+        },
+        {
+            "key": "AMOCS",
+            "value": "SISTEMA AVANZADO MODULAR DE REFRIGERACION",
+            "synonyms": [
+                "SISTEMA AVANZADO MODULAR DE LA REFRIGERACION"
+            ]
+        },
+        {
+            "key": "APA",
+            "value": "ANALISIS PROGRAMADO DE ACEITE",
+            "synonyms": [
+                "ANALISIS PROGRAMADO DEL ACEITE"
+            ]
+        },
+        {
+            "key": "APC",
+            "value": "CONTROL AUTOMATICO DE POSICION",
+            "synonyms": [
+                "CONTROL AUTOMATICO DE LA POSICION"
+            ]
+        },
+        {
+            "key": "API",
+            "value": "INSTITUTO AMERICANO DE PETROLEO",
+            "synonyms": [
+                "INSTITUTO AMERICANO DEL PETROLEO"
+            ]
+        },
+        {
+            "key": "ARC",
+            "value": "CONTROL DE RETARDADOR AUTOMATICO",
+            "synonyms": [
+                "CONTROL DEL RETARDADOR AUTOMATICO"
+            ]
+        },
+        {
+            "key": "ATTAC",
+            "value": "POST ENFRIADOR DE AIRE POR AIRE",
+            "synonyms": [
+                "POST ENFRIAMIENTO DE AIRE POR AIRE"
+            ]
+        },
+        {
+            "key": "AWD",
+            "value": "TRACCION DE TODAS LAS RUEDAS",
+            "synonyms": [
+                "TRACCION EN TODAS LAS RUEDAS",
+                "TRACCION DE TODAS LAS 4 RUEDAS",
+                "TRACCION EN TODAS LAS 4 RUEDAS",
+                "TRACCION DE TODAS LAS CUATRO RUEDAS",
+                "TRACCION EN TODAS LAS CUATRO RUEDAS"
+            ]
+        },
+        {
+            "key": "AWS",
+            "value": "DIRECCION DE TODAS LAS RUEDAS",
+            "synonyms": [
+                "DIRECCION EN TODAS LAS RUEDAS",
+                "DIRECCION DE TODAS LAS 4 RUEDAS",
+                "DIRECCION EN TODAS LAS 4 RUEDAS",
+                "DIRECCION DE TODAS LAS CUATRO RUEDAS",
+                "DIRECCION EN TODAS LAS CUATRO RUEDAS"
+            ]
+        },
+        {
+            "key": "CAES",
+            "value": "SISTEMA DE MOVIMIENTO DE TIERRA ASISTIDO POR COMPUTADOR",
+            "synonyms": [
+                "SISTEMA DE MOVIMIENTO DE LA TIERRA ASISTIDO POR COMPUTADOR"
+            ]
+        },
+        {
+            "key": "CAT ET",
+            "value": "TECNICO ELECTRONICO DE CATERPILLAR",
+            "synonyms": [
+                "TECNICO ELECTRONICO CATERPILLAR",
+                "TECNICO ELECTRONICO EN CATERPILLAR"
+            ]
+        },
+        {
+            "key": "CG",
+            "value": "CENTRO DE GRAVEDAD"
+        },
+        {
+            "key": "CMS",
+            "value": "SISTEMA DE MONITOREO COMPUTARIZADO"
+        },
+        {
+            "key": "DEAC",
+            "value": "ANTICONGELANTE PARA MOTORES DIESEL",
+            "synonyms": [
+                "ANTICONGELANTE DE MOTORES DIESEL",
+                "ANTICONGELANTE DE MOTOR DIESEL",
+                "ANTICONGELANTE PARA MOTOR DIESEL"
+            ]
+        },
+        {
+            "key": "DISPACHT",
+            "value": "CENTRO DE CONTROL DE DESPACHO DE CAMIONES MINEROS Y TODA OPERACION EN MINA"
+        },
+        {
+            "key": "DEO",
+            "value": "ACEITE ESPECIAL PARA MOTORES DIESEL",
+            "synonyms": [
+                "ACEITE ESPECIAL PARA MOTOR DIESEL"
+            ]
+        },
+        {
+            "key": "DID",
+            "value": "INDICADOR DE DIAGNOSTICO",
+            "synonyms": [
+                "INDICADOR O VISOR DE DIAGNOSTICO"
+            ]
+        },
+        {
+            "key": "ECM",
+            "value": "MODULO DE CONTROL ELECTRONICO"
+        },
+        {
+            "key": "ELC",
+            "value": "REFRIGERANTE DE LARGA DURACION"
+        },
+        {
+            "key": "EPTC II",
+            "value": "CONTROL ELECTRONICO PROGRAMABLE DE LA TRANSMISION"
+        },
+        {
+            "key": "EUI",
+            "value": "UNIDAD DE INYECCION ELECTRONICA",
+            "synonyms": [
+                "UNIDAD DE INYECCION ELECTRONICO"
+            ]
+        },
+        {
+            "key": "EVS",
+            "value": "SISTEMA DE VERIFICACION ELECTRONICA",
+            "synonyms": [
+                "SISTEMA DE VERIFICACION ELECTRONICO"
+            ]
+        },
+        {
+            "key": "GPS",
+            "value": "SISTEMA DE POSICIONAMIENTO GLOBAL"
+        },
+        {
+            "key": "GO",
+            "value": "ACEITE ESPECIAL PARA ENGRANAJES",
+            "synonyms": [
+                "ACEITE ESPECIAL PARA LOS ENGRANAJES",
+                "ACEITE ESPECIAL PARA ENGRANAJE",
+                "ACEITE ESPECIAL PARA EL ENGRANAJE"
+            ]
+        },
+        {
+            "key": "GEO",
+            "value": "ACEITE ESPECIAL PARA DIFERENCIALES",
+            "synonyms": [
+                "ACEITE ESPECIAL PARA LOS DIFERENCIALES",
+                "ACEITE ESPECIAL PARA DIFERENCIAL",
+                "ACEITE ESPECIAL PARA EL DIFERENCIAL"
+            ]
+        },
+        {
+            "key": "HP",
+            "value": "CABALLOS DE FUERZA"
+        },
+        {
+            "key": "HMU",
+            "value": "UNIDAD DE DOSIFICACION MANUAL"
+        },
+        {
+            "key": "HEUI",
+            "value": "UNIDAD DE INYECCION ELECTRO-HIDRAULICA"
+        },
+        {
+            "key": "HYDO",
+            "value": "ACEITE ESPECIAL PARA SISTEMAS HIDRAULICOS",
+            "synonyms": [
+                "ACEITE ESPECIAL PARA SISTEMA HIDRAULICO",
+                "ACEITE ESPECIAL PARA EL SISTEMA HIDRAULICO"
+            ]
+        },
+        {
+            "key": "IBC",
+            "value": "CONTROL INTEGRADO DE FRENOS"
+        },
+        {
+            "key": "JWAC",
+            "value": "POST ENFRIADOR DE CAMISAS DE AGUA",
+            "synonyms": [
+                "POST ENFRIADOR POR CAMISAS DE AGUA",
+                "POST ENFRIAMIENTO POR CAMISAS DE AGUA"
+            ]
+        },
+        {
+            "key": "MTD",
+            "value": "ACEITE CON PROPIEDADES MULTIUSOS",
+            "synonyms": [
+                "ACEITE CON PROPIEDAD MULTIUSOS",
+                "ACEITE CON PROPIEDADES MULTIUSO",
+                "ACEITE CON PROPIEDAD MULTIUSO"
+            ]
+        },
+        {
+            "key": "MEUI",
+            "value": "UNIDAD DE INYECCION ELECTRO-MECANICA"
+        },
+        {
+            "key": "NA",
+            "value": "ASPIRACION NATURAL"
+        },
+        {
+            "key": "PIC",
+            "value": "PROGRAMA DE INTERCAMBIO DE COMPONENTES"
+        },
+        {
+            "key": "PIN",
+            "value": "NUMERO DE IDENTIFICACION DE PRODUCTO",
+            "synonyms": [
+                "NUMERO DE IDENTIFICACION DEL PRODUCTO",
+                "NUMERO DE IDENTIFICACION DE UN PRODUCTO",
+                "NUMERO DE LA IDENTIFICACION DE UN PRODUCTO",
+                "NUMERO DE LA IDENTIFICACION DEL PRODUCTO"
+            ]
+        },
+        {
+            "key": "PM",
+            "value": "PROGRAMA DE MANTENIMIENTO"
+        },
+        {
+            "key": "PMI",
+            "value": "PUNTO MUERTO INFERIOR"
+        },
+        {
+            "key": "PMS",
+            "value": "PUNTO MUERTO SUPERIOR"
+        },
+        {
+            "key": "PIM",
+            "value": "PROGRAMA DE INTERVALOS DE MANTENIMIENTO"
+        },
+        {
+            "key": "PSI",
+            "value": "LIBRA POR PULGADA CUADRADA"
+        },
+        {
+            "key": "RAC",
+            "value": "RELACION AIRE COMBUSTIBLE",
+            "synonyms": [
+                "RELACION AIRE - COMBUSTIBLE",
+                "RELACION AIRE Y COMBUSTIBLE",
+                "RELACION DE AIRE COMBUSTIBLE",
+                "RELACION DE AIRE Y COMBUSTIBLE",
+                "RELACION DE AIRE Y DEL COMBUSTIBLE",
+                "RELACION DEL AIRE COMBUSTIBLE",
+                "RELACION DEL AIRE Y COMBUSTIBLE",
+                "RELACION DEL AIRE Y DEL COMBUSTIBLE",
+                "RELACION DE AIRE Y EL COMBUSTIBLE",
+                "RELACION DEL AIRE Y EL COMBUSTIBLE"
+            ]
+        },
+        {
+            "key": "RPM",
+            "value": "REVOLUCIONES POR MINUTO"
+        },
+        {
+            "key": "SCA",
+            "value": "ADITIVOS SUPLEMENTARIOS DE REFRIGERACION",
+            "synonyms": [
+                "ADITIVOS SUPLEMENTARIOS DE LA REFRIGERACION",
+                "ADITIVOS SUPLEMENTARIOS PARA LA REFRIGERACION"
+            ]
+        },
+        {
+            "key": "SCAC",
+            "value": "POST ENFRIADOR POR CIRCUITO SEPARADO",
+            "synonyms": [
+                "POST ENFRIADOR DE CIRCUITO SEPARADO",
+                "POST ENFRIAMIENTO POR CIRCUITO SEPARADO",
+                "POST ENFRIAMIENTO DE CIRCUITO SEPARADO"
+            ]
+        },
+        {
+            "key": "SOS",
+            "value": "SERVICIO ESPECIAL DE ACETIE"
+        },
+        {
+            "key": "TDTO",
+            "value": "ACEITE ESPECIAL PARA SISTEMAS DE TRANSMISION",
+            "synonyms": [
+                "ACEITE ESPECIAL PARA EL SISTEMA DE TRANSMISION",
+                "ACEITE ESPECIAL PARA EL SISTEMA DE LA TRANSMISION"
+            ]
+        },
+        {
+            "key": "T",
+            "value": "TURBOCARGADOR"
+        },
+        {
+            "key": "TA",
+            "value": "TURBOCARGADOR CON POST ENFRIADOR"
+        },
+        {
+            "key": "UNF",
+            "value": "NUMERO DE HILOS FINOS DE UN PERNO O TUERCA"
+        },
+        {
+            "key": "UNC",
+            "value": "NUMERO DE HILOS CORRIENTES DE UN PERNO O TUERCA"
+        },
+        {
+            "key": "VORAD",
+            "value": "SISTEMA AUTOMATICO ANTICHOQUES Y ANTICOLISIONES"
+        },
+        {
+            "key": "VIMS",
+            "value": "SISTEMA DE ADMINISTRACION DE INFORMACION VITAL DE LA MAQUINA",
+            "synonyms": [
+                "SISTEMA DE ADMINISTRACION DE LA INFORMACION VITAL DE LA MAQUINA",
+                "SISTEMA DE ADMINISTRACION DE LA INFORMACION VITAL PARA LA MAQUINA",
+                "SISTEMA DE ADMINISTRACION DE INFORMACION VITAL PARA LA MAQUINA"
+            ]
+        },
+        {
+            "key": "VPM",
+            "value": "VIBRACIONES POR MINUTO"
+        },
+        {
+            "key": "VIOS",
+            "value": "SISTEMA DE VISUALIZACION DE INFORMACION POR PANTALLA",
+            "synonyms": [
+                "SISTEMA DE VISUALIZACION DE LA INFORMACION POR PANTALLA"
+            ]
+        },
+        {
+            "key": "NOSPIN",
+            "value": "DIFERENCIAL CON PATINAJE LIMITADO"
+        }
+    ],
+    "seguridad": [
+        {
+            "key": "AFP",
+            "value": "ADMINISTRADORA DE FONDO DE PENSIONES"
+        },
+        {
+            "key": "ANSI",
+            "value": "INSTITUTO AMERICANO NACIONAL DE ESTANDARES"
+        },
+        {
+            "key": "ARP",
+            "value": "ADMINISTRADORA DE RIESGOS PROFESIONALES",
+            "synonyms": [
+                "ADMINISTRACION DE RIESGOS PROFESIONALES"
+            ]
+        },
+        {
+            "key": "ASME",
+            "value": "SOCIEDAD AMERICANA DE INGENIEROS MECANICOS"
+        },
+        {
+            "key": "ATS",
+            "value": "ANALISIS DE TRABAJO SEGURO"
+        },
+        {
+            "key": "CIA",
+            "value": "AGENCIA COMPLEMENTARIA DE INGRESO"
+        },
+        {
+            "key": "DOT",
+            "value": "DEPARTAMENTO DE TRANSPORTES",
+            "synonyms": [
+                "DEPARTAMENTO DE TRANSPORTE"
+            ]
+        },
+        {
+            "key": "EIA",
+            "value": "ESTUDIO DEL IMPACTO AMBIENTAL"
+        },
+        {
+            "key": "EN",
+            "value": "NORMAS EUROPEAS"
+        },
+        {
+            "key": "EP",
+            "value": "ENFERMEDADES PROFESIONALES"
+        },
+        {
+            "key": "EPA",
+            "value": "EQUIPO DE PROTECCION AUDITIVA"
+        },
+        {
+            "key": "EPF",
+            "value": "ESTANDARES DE PROTECCION DE FATALIDADES",
+            "synonyms": [
+                "ESTANDARES DE PREVENCION DE FATALIDADES"
+            ]
+        },
+        {
+            "key": "EPI",
+            "value": "EQUIPO DE PROTECCION INDIVIDUAL"
+        },
+        {
+            "key": "EPP",
+            "value": "EQUIPO DE PROTECCION PERSONAL"
+        },
+        {
+            "key": "EPS",
+            "value": "ENTIDAD PRESTADORA DE SALUD"
+        },
+        {
+            "key": "EPR",
+            "value": "EQUIPO DE PROTECCION RESPIRATORIA"
+        },
+        {
+            "key": "FOPS",
+            "value": "ESTRUCUTRA DE PROTECCION CONTRA CAIDA DE OBJETOS"
+        },
+        {
+            "key": "HMIS",
+            "value": "SISTEMA DE IDENTIFICACION DE MATERIALES PELIGROSOS"
+        },
+        {
+            "key": "IAF",
+            "value": "FORO DE ACREDITACION INTERNACIONAL"
+        },
+        {
+            "key": "ILO",
+            "value": "ORGANIZACION INTERNACIONAL LABORAL"
+        },
+        {
+            "key": "INDECOPI",
+            "value": "INSTITUTO NACIONAL DE DEFENSA DE LA COMPETENCIA Y PROTECCION DE LA PROPIEDAD INTELECTUAL",
+            "synonyms": [
+                "INSTITUTO NACIONAL DE DEFENSA DE LA COMPETENCIA Y DE LA PROTECCION DE LA PROPIEDAD INTELECTUAL"
+            ]
+        },
+        {
+            "key": "IPP",
+            "value": "IMPLEMENTO DE PROTECCION PERSONAL"
+        },
+        {
+            "key": "IRAM",
+            "value": "INSTITUTO ARGENTINO DE LA NORMALIZACION Y CERTIFICACION",
+            "synonyms": [
+                "INSTITUTO ARGENTINO DE NORMALIZACION Y CERTIFICACION"
+            ]
+        },
+        {
+            "key": "ISO",
+            "value": "ORGANIZACION NACIONAL DE ESTANDARES"
+        },
+        {
+            "key": "LSST",
+            "value": "LEY DE SALUD Y SEGURIDAD EN EL TRABAJO",
+            "synonyms": [
+                "LEY DE SALUD Y SEGURIDAD OCUPACIONAL",
+                "LEY DE SALUD Y SEGURIDAD DEL TRABAJO"
+            ]
+        },
+        {
+            "key": "MERCOSUR",
+            "value": "MERCADO COMUN DEL SUR"
+        },
+        {
+            "key": "MTC",
+            "value": "MINISTERIO DE TRANSPORTES Y COMUNICACIONES"
+        },
+        {
+            "key": "NFPA",
+            "value": "ASOCIACION NACIONAL DE PROTECCION CONTRA EL FUEGO"
+        },
+        {
+            "key": "NIT",
+            "value": "NORMAS INTERNACIONALES DE TRABAJO"
+        },
+        {
+            "key": "NOSA",
+            "value": "ASOCIACION NACIONAL DE SALUD OCUPACIONAL"
+        },
+        {
+            "key": "NPCA",
+            "value": "ASOCIACION NACIONAL DE RECUBRIMIENTO DE PINTURA"
+        },
+        {
+            "key": "NTP",
+            "value": "NORMAS TECNICAS PERUANAS"
+        },
+        {
+            "key": "OEA",
+            "value": "ORGANIZACION DE LOS ESTADOS AMERICANOS"
+        },
+        {
+            "key": "OIT",
+            "value": "ORGANIZACION INTERNACIONAL DE TRABAJO"
+        },
+        {
+            "key": "OIS",
+            "value": "ORGANIZACION IBEROAMERICANA DE SALUD"
+        },
+        {
+            "key": "OMS",
+            "value": "ORGANIZACION MUNDIAL DE SALUD",
+            "synonyms": [
+                "ORGANIZACION MUNDIAL DE LA SALUD"
+            ]
+        },
+        {
+            "key": "ONP",
+            "value": "OFICINA DE NORMALIZACION PREVISIONAL"
+        },
+        {
+            "key": "ONU",
+            "value": "ORGANIZACION DE LAS NACIONES UNIDAS"
+        },
+        {
+            "key": "OPT",
+            "value": "OBSERVACION DEL PLANEAMIENTO DE TRABAJO",
+            "synonyms": [
+                "OBSERVACION DE PLANEAMIENTO DE TRABAJO",
+                "OBSERVACION DE PLANEAMIENTO DEL TRABAJO"
+            ]
+        },
+        {
+            "key": "OPS",
+            "value": "ESTRUCTURA DE PROTECCION DEL OPERARIO"
+        },
+        {
+            "key": "OSHA",
+            "value": "ADMINISTRACION DE SALUD Y SEGURIDAD OCUPACIONAL",
+            "synonyms": [
+                "ADMINISTRACION DE LA SALUD Y SEGURIDAD OCUPACIONAL",
+                "ADMINISTRACION DE LA SALUD Y DE LA SEGURIDAD OCUPACIONAL"
+            ]
+        },
+        {
+            "key": "PAMA",
+            "value": "PROGRAMA DE ADECUACION DE MANEJO AMBIENTAL",
+            "synonyms": [
+                "PROGRAMA DE ADECUACION DEL MANEJO AMBIENTAL"
+            ]
+        },
+        {
+            "key": "PETAR",
+            "value": "PERMISO ESCRITO PARA TRABAJOS DE ALTO RIESGO"
+        },
+        {
+            "key": "PHVA",
+            "value": "PLANEAR, HACER, VERIFICAR, ACTUAR",
+            "synonyms": [
+                "PLANEAR HACER VERIFICAR ACTUAR"
+            ]
+        },
+        {
+            "key": "PSO",
+            "value": "PROGRAMA DE SALUD OCUPACIONAL"
+        },
+        {
+            "key": "PYP",
+            "value": "PREVENCION Y PROTECCION"
+        },
+        {
+            "key": "ROPS",
+            "value": "ESTRUCTURA DE PROTECCION CONTRA VOLCADURAS"
+        },
+        {
+            "key": "RSC",
+            "value": "RIESGO DE SALUD COMPLEMENTARIA"
+        },
+        {
+            "key": "SATEP",
+            "value": "SEGURO DE ACCIDENTES DE TRABAJO Y ENFERMEDADES PROFESIONALES",
+            "synonyms": [
+                "SEGURO DE ACCIDENTES DE TRABAJOS Y ENFERMEDADES PROFESIONALES",
+                "SEGURO PARA ACCIDENTES DE TRABAJO Y ENFERMEDADES PROFESIONALES"
+            ]
+        },
+        {
+            "key": "SCTR",
+            "value": "SEGURO COMPLEMENTARIO DE TRABAJOS DE RIESGO",
+            "synonyms": [
+                "SEGURO COMPLEMENTARIO PARA TRABAJOS DE RIESGO",
+                "SEGURO COMPLEMENTARIO PARA TRABAJOS DE ALTO RIESGO",
+                "SEGURO COMPLEMENTARIO DE TRABAJOS DE ALTO RIESGO"
+            ]
+        },
+        {
+            "key": "SGC",
+            "value": "SISTEMA DE GESTION DE CALIDAD"
+        },
+        {
+            "key": "SGI",
+            "value": "SISTEMA DE GESTION INTEGRADO"
+        },
+        {
+            "key": "SGMA",
+            "value": "SISTEMA DE GESTION DEL MEDIO AMBIENTE"
+        },
+        {
+            "key": "SUNAFIL",
+            "value": "SUPERINTENDENCIA NACIONAL DE FISCALIZACION LABORAL"
+        },
+        {
+            "key": "SUNAT",
+            "value": "SUPERINTENDENCIA NACIONAL DE ADMINISTRACION TRIBUTARIA"
+        },
+        {
+            "key": "SUTRAM",
+            "value": "SUPERINTENDENCIA DE TRANSPORTES TERRESTRES DE PERSONAS, CARGAS Y MERCADERIA",
+            "synonyms": [
+                "SUPERINTENDENCIA DE TRANSPORTES TERRESTRES DE PERSONAS CARGAS Y MERCADERIAS",
+                "SUPERINTENDENCIA DE TRANSPORTE TERRESTRE DE PERSONAS, CARGAS Y MERCADERIAS",
+                "SUPERINTENDENCIA DE TRANSPORTE TERRESTRE DE PERSONAS CARGAS Y MERCADERIAS",
+                "SUPERINTENDENCIA DE TRANSPORTES TERRESTRES DE PERSONAS CARGAS Y MERCADERIA",
+                "SUPERINTENDENCIA DE TRANSPORTE TERRESTRE DE PERSONAS, CARGAS Y MERCADERIA",
+                "SUPERINTENDENCIA DE TRANSPORTE TERRESTRE DE PERSONAS CARGAS Y MERCADERIA",
+                "SUPERINTENDENCIA DE TRANSPORTES TERRESTRES DE PERSONAS CARGA Y MERCADERIA",
+                "SUPERINTENDENCIA DE TRANSPORTES TERRESTRE DE PERSONAS CARGA Y MERCADERIA",
+                "SUPERINTENDENCIA DE TRANSPORTES TERRESTRE DE PERSONAS CARGAS Y MERCADERIA"
+            ]
+        },
+        {
+            "key": "SYSO",
+            "value": "SALUD Y SEGURIDAD OCUPACIONAL"
+        },
+        {
+            "key": "SYSOMA",
+            "value": "SALUD Y SEGURIDAD OCUPACIONAL DEL MEDIO AMBIENTE",
+            "synonyms": [
+                "SALUD Y SEGURIDAD OCUPACIONAL EN EL MEDIO AMBIENTE"
+            ]
+        },
+        {
+            "key": "TOPS",
+            "value": "ESTRUCTURA DE PROTECCION CONTRA BASCULAMIENTO"
+        },
+        {
+            "key": "ZAP",
+            "value": "ZONA DE ACCION PROTECTORA"
+        },
+        {
+            "key": "ZAI",
+            "value": "ZONA DE AISLAMIENTO INICIAL"
+        }
+    ]
+}

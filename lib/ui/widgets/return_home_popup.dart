@@ -29,7 +29,7 @@ class ReturnHomePopup extends StatelessWidget {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context); // Cierra el popup sin acción
+                Navigator.pop(context);
               },
               child: const Text('Cancelar'),
             ),

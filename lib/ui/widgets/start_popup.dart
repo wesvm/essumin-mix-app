@@ -21,8 +21,10 @@ class StartPopup extends StatelessWidget {
           return Dialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
+              side: const BorderSide(color: Colors.white),
             ),
             child: Container(
+              color: const Color(0XFF0d1117),
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -37,17 +39,19 @@ class StartPopup extends StatelessWidget {
                   const SizedBox(height: 16.0),
                   Column(
                     children: optionsMap.keys.map((category) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.pushNamed(context, '/option_length',
-                              arguments: {
-                                'category': category,
-                                'options': optionsMap[category],
-                              });
-                        },
-                        child: Text(
-                            '${category[0].toUpperCase()}${category.substring(1)}'),
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, '/option', arguments: {
+                              'category': category,
+                              'options': optionsMap[category],
+                            });
+                          },
+                          child: Text(
+                              '${category[0].toUpperCase()}${category.substring(1)}'),
+                        ),
                       );
                     }).toList(),
                   ),

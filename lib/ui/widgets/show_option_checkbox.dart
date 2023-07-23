@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 
-class ShowOptionsCheckbox extends StatefulWidget {
-  final ValueChanged<bool>? onChanged;
+class ShowOptionsRadio extends StatefulWidget {
+  final ValueChanged<int>? onChanged;
 
-  const ShowOptionsCheckbox({Key? key, this.onChanged}) : super(key: key);
+  const ShowOptionsRadio({Key? key, this.onChanged}) : super(key: key);
 
   @override
-  ShowOptionsCheckboxState createState() => ShowOptionsCheckboxState();
+  ShowOptionsRadioState createState() => ShowOptionsRadioState();
 }
 
-class ShowOptionsCheckboxState extends State<ShowOptionsCheckbox> {
-  bool _showAll = false;
+class ShowOptionsRadioState extends State<ShowOptionsRadio> {
+  int _selectedOption = 5;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Checkbox(
-          value: _showAll,
+        Radio<int>(
+          value: 5,
+          groupValue: _selectedOption,
           onChanged: (value) {
             setState(() {
-              _showAll = value!;
+              _selectedOption = value!;
               if (widget.onChanged != null) {
-                widget.onChanged!(_showAll);
-              }
-            });
-          },
-        ),
-        const Text('Mostrar todo'),
-        const SizedBox(width: 20),
-        Checkbox(
-          value: !_showAll,
-          onChanged: (value) {
-            setState(() {
-              _showAll = !value!;
-              if (widget.onChanged != null) {
-                widget.onChanged!(_showAll);
+                widget.onChanged!(value);
               }
             });
           },
         ),
         const Text('Mostrar 5'),
+        const SizedBox(width: 20),
+        Radio<int>(
+          value: 0,
+          groupValue: _selectedOption,
+          onChanged: (value) {
+            setState(() {
+              _selectedOption = value!;
+              if (widget.onChanged != null) {
+                widget.onChanged!(value);
+              }
+            });
+          },
+        ),
+        const Text('Mostrar todo'),
       ],
     );
   }

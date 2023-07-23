@@ -27,12 +27,13 @@ class ReturnHomePopup extends StatelessWidget {
               style: TextStyle(fontSize: 16.0),
             ),
             const SizedBox(height: 16.0),
-            ElevatedButton(
+            TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               child: const Text('Cancelar'),
             ),
+            const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 Navigator.popUntil(context, ModalRoute.withName('/'));

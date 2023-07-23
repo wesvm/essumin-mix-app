@@ -1,15 +1,18 @@
-import 'package:essumin_mix/ui/widgets/return_home_popup.dart';
-import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
+import 'package:essumin_mix/ui/screens/end_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:essumin_mix/data/option.dart';
 import 'package:string_normalizer/string_normalizer.dart';
+
+import 'package:essumin_mix/ui/widgets/progress_bar.dart';
+import 'package:essumin_mix/ui/widgets/result_dialog.dart';
+import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
 
 class SiglasScreen extends StatefulWidget {
   final String category;
   final List<Option> options;
   final bool isRandom;
-  final int fromValue;
-  final int toValue;
+  final int startIndex;
+  final int endIndex;
   final int rangeOption;
 
   const SiglasScreen(
@@ -17,8 +20,8 @@ class SiglasScreen extends StatefulWidget {
       required this.category,
       required this.options,
       required this.isRandom,
-      required this.fromValue,
-      required this.toValue,
+      required this.startIndex,
+      required this.endIndex,
       required this.rangeOption})
       : super(key: key);
 
@@ -30,6 +33,8 @@ class SiglasScreenState extends State<SiglasScreen> {
   int currentIndex = 0;
   List<Option> displayedOptions = [];
   String selectedCategory = '';
+  bool isButtonDisabled = true;
+  int score = 0;
 
   final TextEditingController _textEditingController = TextEditingController();
   bool isCorrect = false;
@@ -39,27 +44,34 @@ class SiglasScreenState extends State<SiglasScreen> {
     super.initState();
     selectedCategory =
         widget.category[0].toUpperCase() + widget.category.substring(1);
+    score = 0;
     _updateDisplayedOptions();
   }
 
   void _updateDisplayedOptions() {
-    final int startIndex = widget.fromValue - 1;
-    final int endIndex = widget.toValue - 1;
+    final int startIndex = widget.startIndex - 1;
+    final int endIndex = widget.endIndex - 1;
 
     if (widget.isRandom) {
       final availableIndexes =
           List.generate(widget.options.length, (index) => index);
+
       availableIndexes.shuffle();
 
-      final int limit = widget.rangeOption == widget.toValue ? endIndex : 4;
+      final int limit = widget.rangeOption == 0 ? endIndex : startIndex + 5;
 
       final selectedIndexes = availableIndexes
-          .where((index) => index >= startIndex && index <= limit);
+          .where((index) => index >= startIndex && index <= limit - 1);
+
       displayedOptions =
           selectedIndexes.map((index) => widget.options[index]).toList();
     } else {
-      final int limit = widget.rangeOption == widget.toValue ? endIndex : 4;
-      displayedOptions = widget.options.sublist(startIndex, limit + 1);
+      final int limit = widget.rangeOption == 0
+          ? endIndex
+          : startIndex == 59
+              ? endIndex
+              : startIndex + 5;
+      displayedOptions = widget.options.sublist(startIndex, limit);
     }
   }
 
@@ -79,6 +91,11 @@ class SiglasScreenState extends State<SiglasScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              ProgressBar(
+                totalItems: displayedOptions.length,
+                currentIndex: currentIndex,
+              ),
+              const SizedBox(height: 16.0),
               Text('Sigla: ${displayedOptions[currentIndex].key}'),
               const SizedBox(height: 16.0),
               Padding(
@@ -88,28 +105,17 @@ class SiglasScreenState extends State<SiglasScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Ingrese el valor de la sigla',
                   ),
+                  onChanged: (text) {
+                    _updateButtonState(text.trim().isEmpty);
+                  },
                 ),
               ),
+              const SizedBox(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      final String userValue = _textEditingController.text
-                          .trim()
-                          .toLowerCase()
-                          .normalize();
-                      final Option currentOption =
-                          displayedOptions[currentIndex];
-                      final List<String> allValues = [
-                        currentOption.value.toLowerCase(),
-                        ...currentOption.synonyms
-                                ?.map((synonym) => synonym.toLowerCase()) ??
-                            [],
-                      ];
-                      isCorrect = allValues.contains(userValue);
-                      _showResultDialog(isCorrect, currentOption.value);
-                    },
+                    onPressed: isButtonDisabled ? null : () => _checkAnswer(),
                     child: const Text('Comprobar'),
                   ),
                 ],
@@ -121,33 +127,67 @@ class SiglasScreenState extends State<SiglasScreen> {
     );
   }
 
-  Future<void> _showResultDialog(bool isCorrect, String currentOption) async {
+  void _checkAnswer() {
+    final String userValue =
+        _textEditingController.text.trim().toLowerCase().normalize();
+    final Option currentOption = displayedOptions[currentIndex];
+    final List<String> allValues = [
+      currentOption.value.toLowerCase(),
+      ...currentOption.synonyms?.map((synonym) => synonym.toLowerCase()) ?? [],
+    ];
+    isCorrect = allValues.contains(userValue);
+    if (isCorrect) {
+      setState(() {
+        score++;
+      });
+    }
+    _showResultDialog(isCorrect, currentOption.value);
+    _updateButtonState(true);
+  }
+
+  void _showResultDialog(bool isCorrect, String currentOption) async {
     final String resultText = isCorrect ? 'Correcto' : 'Incorrecto';
-    return showDialog(
+    showModalBottomSheet(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(resultText),
-        content: Text(currentOption),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              if (currentIndex < displayedOptions.length - 1) {
-                setState(() {
-                  currentIndex++;
-                  _textEditingController.clear();
-                });
-              } else {
-                showDialog(
-                  context: context,
-                  builder: (_) => const ReturnHomePopup(),
-                );
-              }
-            },
-            child: const Text('OK'),
-          ),
-        ],
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+      ),
+      isDismissible: false,
+      enableDrag: false,
+      builder: (context) {
+        return ResultDialog(
+          title: resultText,
+          message: currentOption,
+          isCorrect: isCorrect,
+          onClose: () {
+            Navigator.pop(context);
+            if (currentIndex < displayedOptions.length - 1) {
+              setState(() {
+                currentIndex++;
+                _textEditingController.clear();
+              });
+            } else {
+              _showEndScreen();
+            }
+          },
+        );
+      },
+    );
+  }
+
+  void _showEndScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) =>
+            EndScreen(score: score, totalItems: displayedOptions.length),
       ),
     );
+  }
+
+  void _updateButtonState(bool isEmpty) {
+    setState(() {
+      isButtonDisabled = isEmpty;
+    });
   }
 }

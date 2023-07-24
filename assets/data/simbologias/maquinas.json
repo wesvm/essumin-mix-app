@@ -1,0 +1,328 @@
+{
+    "grua": [
+        {
+            "imgUrl": "assets/images/simbologias/grua/arm-lower.png",
+            "es_value": "BAJAR BRAZO",
+            "en_value": "ARM LOWER",
+            "en_synonyms": [
+                "LOWER ARM"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/arm-raise.png",
+            "es_value": "SUBIR BRAZO",
+            "en_value": "ARM RAISE",
+            "en_synonyms": [
+                "RAISE ARM",
+                "LIFT ARM",
+                "ARM LIFT"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/beam-inner-ls.png",
+            "es_value": "METER EXTENSION LADO OPERADOR",
+            "es_synonyms": [
+                "METER EXTENSION DEL LADO OPERADOR",
+                "METER EXTENSION DEL LADO DEL OPERADOR",
+                "METER EXTENSION DE LADO DEL OPERADOR",
+                "METER EXTENSION DE LADO OPERADOR"
+            ],
+            "en_value": "BEAM INNER LEFT SIDE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/beam-inner-rs.png",
+            "es_value": "METER EXTENSION LADO CONTRARIO OPERADOR",
+            "es_synonyms": [
+                "METER EXTENSION DEL LADO CONTRARIO OPERADOR",
+                "METER EXTENSION DEL LADO CONTRARIO DEL OPERADOR",
+                "METER EXTENSION DE LADO CONTRARIO OPERADOR",
+                "METER EXTENSION DE LADO CONTRARIO DEL OPERADOR"
+            ],
+            "en_value": "BEAM INNER RIGHT SIDE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/boom-lower.png",
+            "es_value": "BAJAR PLUMA",
+            "en_value": "BOOM LOWER",
+            "en_synonyms": [
+                "LOWER BOOM"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/boom-raise.png",
+            "es_value": "SUBIR PLUMA",
+            "en_value": "BOOM RAISE",
+            "en_synonyms": [
+                "RAISE BOOM",
+                "BOOM LIFT",
+                "LIFT BOOM"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/brake-off-winch.png",
+            "es_value": "DESACTIVAR FRENO DE CABESTRANTE",
+            "es_synonyms": [
+                "DESACTIVAR EL FRENO DEL CABESTRANTE",
+                "DESACTIVAR FRENO DEL CABESTRANTE",
+                "DESCONECTAR FRENO DE CABESTRANTE",
+                "DESCONECTAR EL FRENO DE CABESTRANTE",
+                "DESCONECTAR EL FRENO DEL CABESTRANTE",
+                "FRENO DESACTIVADO DE CABESTRANTE",
+                "FRENO DESACTIVADO DEL CABESTRANTE",
+                "FRENO DESCONECTADO DE CABESTRANTE",
+                "FRENO DESCONECTADO DEL CABESTRANTE"
+            ],
+            "en_value": "BRAKE OFF WINCH",
+            "en_synonyms": [
+                "WINCH BRAKE OFF"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/brake-on-winch.png",
+            "es_value": "ACTIVAR FRENO DE CABESTRANTE",
+            "es_synonyms": [
+                "ACTIVAR EL FRENO DEL CABESTRANTE",
+                "ACTIVAR FRENO DEL CABESTRANTE",
+                "CONECTAR FRENO DE CABESTRANTE",
+                "CONECTAR EL FRENO DE CABESTRANTE",
+                "CONECTAR EL FRENO DEL CABESTRANTE",
+                "FRENO ACTIVADO DE CABESTRANTE",
+                "FRENO ACTIVADO DEL CABESTRANTE",
+                "FRENO CONECTADO DE CABESTRANTE",
+                "FRENO CONECTADO DEL CABESTRANTE"
+            ],
+            "en_value": "BRAKE ON WINCH",
+            "en_synonyms": [
+                "WINCH BRAKE ON"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/clock-wise-column.png",
+            "es_value": "GIRAR COLUMNA A LA DERECHA",
+            "es_synonyms": [
+                "GIRAR LA COLUMNA A LA DERECHA",
+                "GIRAR COLUMNA HACIA LA DERECHA"
+            ],
+            "en_value": "CLOCKWISE COLUMN",
+            "en_synonyms": [
+                "COLUMN CLOCKWISE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/counter-clock-wise-column.png",
+            "es_value": "GIRAR COLUMNA A LA IZQUIERDA",
+            "es_synonyms": [
+                "GIRAR LA COLUMNA A LA IZQUIERDA",
+                "GIRAR COLUMNA HACIA LA IZQUIERDA"
+            ],
+            "en_value": "COUNTER CLOCKWISE COLUMN",
+            "en_synonyms": [
+                "COLUMN COUNTER CLOCKWISE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/extension-in.png",
+            "es_value": "RETRAER PROLONGA",
+            "es_synonyms": [
+                "RETRAER PROLONGAS",
+                "RETRAER LA PROLONGA",
+                "RETRAER LAS PROLONGAS"
+            ],
+            "en_value": "EXTENSION IN",
+            "en_synonyms": [
+                "IN EXTEND",
+                "EXTEND IN",
+                "IN EXTENSION"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/extension-out.png",
+            "es_value": "EXTENDER PROLONGA",
+            "es_synonyms": [
+                "EXTENDER PROLONGAS",
+                "EXTENDER LA PROLONGA",
+                "EXTENDER LAS PROLONGAS"
+            ],
+            "en_value": "EXTENSION OUT",
+            "en_synonyms": [
+                "OUT EXTEND",
+                "EXTEND OUT",
+                "OUT EXTENSION"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/flyjib-extend.png",
+            "es_value": "EXTENDER FLYJIB",
+            "en_value": "FLYJIB EXTEND"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/flyjib-retract.png",
+            "es_value": "RETRAER FLYJIB",
+            "en_value": "FLYJIB RETRACT"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/flyjib-in-extend.png",
+            "es_value": "RETRAER PROLONGA DEL FLYJIB",
+            "es_synonyms": [
+                "RETRAER PROLONGAS DEL FLYJIB",
+                "RETRAER PROLONGAS DE FLYJIB",
+                "RETRAER PROLONGA DE FLYJIB",
+                "METER PROLONGAS DE FLYJIB",
+                "METER PROLONGA DE FLYJIB"
+            ],
+            "en_value": "FLYJIB INNER EXTEND"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/flyjib-out-extend.png",
+            "es_value": "EXTENDER PROLONGA DEL FLYJIB",
+            "es_synonyms": [
+                "EXTENDER PROLONGAS DEL FLYJIB",
+                "EXTENDER PROLONGAS DE FLYJIB",
+                "EXTENDER PROLONGA DE FLYJIB",
+                "SACAR PROLONGAS DE FLYJIB",
+                "SACAR PROLONGA DE FLYJIB"
+            ],
+            "en_value": "FLYJIB OUTTER EXTEND"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/grapple-close.png",
+            "es_value": "CERRAR GRAPA",
+            "es_synonyms": [
+                "CERRAR LA GRAPA"
+            ],
+            "en_value": "GRAPPLE CLOSE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/grapple-open.png",
+            "es_value": "ABRIR GRAPA",
+            "es_synonyms": [
+                "ABRIR LA GRAPA"
+            ],
+            "en_value": "GRAPPLE OPEN"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/hock-lower.png",
+            "es_value": "BAJAR GANCHO",
+            "es_synonyms": [
+                "BAJAR CABESTRANTE",
+                "BAJAR EL GANCHO",
+                "BAJAR EL CABESTRANTE"
+            ],
+            "en_value": "HOCK LOWER",
+            "en_synonyms": [
+                "LOWER HOCK",
+                "WINCH LOWER",
+                "LOWER WINCH"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/hock-raise.png",
+            "es_value": "SUBIR GANCHO",
+            "es_synonyms": [
+                "SUBIR CABESTRANTE",
+                "SUBIR EL GANCHO",
+                "SUBIR EL CABESTRANTE"
+            ],
+            "en_value": "HOCK RAISE",
+            "en_synonyms": [
+                "RAISE HOCK",
+                "LIFT HOCK",
+                "HOCK LIFT",
+                "WINCH RAISE",
+                "RAISE WINCH",
+                "WINCH LIFT",
+                "LIFT WINCH"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/jack-in-r.png",
+            "es_value": "METER GATO LADO DERECHO",
+            "es_synonyms": [
+                "METER GATO DEL LADO DERECHO"
+            ],
+            "en_value": "JACK IN RIGHT SIDE",
+            "en_synonyms": [
+                "JACK UP RIGHT SIDE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/jack-out-r.png",
+            "es_value": "SACAR GATO LADO DERECHO",
+            "es_synonyms": [
+                "SACAR GATO DEL LADO DERECHO"
+            ],
+            "en_value": "JACK OUT RIGHT SIDE",
+            "en_synonyms": [
+                "JACK DOWN RIGHT SIDE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/jack-up-ls.png",
+            "es_value": "METER GATO LADO IZQUIERDO",
+            "es_synonyms": [
+                "METER GATO DEL LADO IZQUIERDO"
+            ],
+            "en_value": "JACK IN LEFT SIDE",
+            "en_synonyms": [
+                "JACK UP LEFT SIDE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/jack-up-rs.png",
+            "es_value": "METER GATO LADO DERECHO",
+            "es_synonyms": [
+                "METER GATO DEL LADO DERECHO"
+            ],
+            "en_value": "JACK UP RIGHT SIDE",
+            "en_synonyms": [
+                "JACK IN RIGHT SIDE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/manual-mode.png",
+            "es_value": "MODO MANUAL",
+            "en_value": "MANUAL MODE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/remote-mode.png",
+            "es_value": "MODO A DISTANCIA",
+            "es_synonyms": [
+                "MODO REMOTO"
+            ],
+            "en_value": "REMOTE MODE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/rotate-clockwise.png",
+            "es_value": "GIRO DEL ROTADOR DERECHO",
+            "en_value": "ROTATE CLOCKWISE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/rotate-counter-clockwise.png",
+            "es_value": "GIRO DEL ROTADOR IZQUIERDO",
+            "es_synonyms": [
+                "GIRO DEL ROTOR IZQUIERDO"
+            ],
+            "en_value": "ROTATE COUNTER CLOCKWISE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/stabilizer-mode.png",
+            "es_value": "MODO ESTABILIZADOR",
+            "en_value": "STABILIZER MODE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/winch-in.png",
+            "es_value": "METER CABESTRANTE",
+            "en_value": "WINCH IN"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/winch-out.png",
+            "es_value": "SACAR CABESTRANTE",
+            "en_value": "WINCH OUT"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/grua/winch.png",
+            "es_value": "CABESTRANTE",
+            "en_value": "WINCH"
+        }
+    ]
+}

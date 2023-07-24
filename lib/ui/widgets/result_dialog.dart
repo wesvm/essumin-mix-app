@@ -55,7 +55,7 @@ class ResultDialogState extends State<ResultDialog> {
                     MaterialStateProperty.all<Color>(const Color(0xFF1e40af)),
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                 padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                    const EdgeInsets.all(16.0)),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),

@@ -10,7 +10,7 @@ class ProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double percentage = currentIndex / totalItems;
+    final double percentage = (currentIndex) / totalItems;
 
     return Container(
       height: 8.0,

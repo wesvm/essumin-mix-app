@@ -1,4 +1,5 @@
-import 'package:essumin_mix/ui/widgets/start_popup.dart';
+import 'package:essumin_mix/ui/widgets/simbologia/start_popup.dart';
+import 'package:essumin_mix/ui/widgets/sigla/start_popup.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (_) => const StartPopup(),
+                  builder: (_) => const SiglaStartPopup(),
                 );
               },
               child: const Text('Siglas'),
@@ -32,7 +33,12 @@ class HomeScreen extends StatelessWidget {
                   const Size(150, 35),
                 ),
               ),
-              onPressed: null,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => const SimbologiaStartPopup(),
+                );
+              },
               child: const Text('Simbologias'),
             ),
           ],

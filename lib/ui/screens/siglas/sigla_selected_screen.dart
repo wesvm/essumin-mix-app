@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:essumin_mix/data/option.dart';
+import 'package:essumin_mix/data/models/sigla/sigla.dart';
 
-import 'package:essumin_mix/ui/screens/siglas_screen.dart';
+import 'package:essumin_mix/ui/screens/siglas/siglas_screen.dart';
 
 import 'package:essumin_mix/ui/widgets/random_switch.dart';
 import 'package:essumin_mix/ui/widgets/range_dropdowns.dart';
 import 'package:essumin_mix/ui/widgets/show_option_checkbox.dart';
 
-class OptionSelectedScreen extends StatefulWidget {
+class SiglaSelectedScreen extends StatefulWidget {
   final String category;
-  final List<Option> options;
+  final List<Sigla> options;
 
-  const OptionSelectedScreen(
+  const SiglaSelectedScreen(
       {Key? key, required this.category, required this.options})
       : super(key: key);
 
   @override
-  OptionSelectedScreenState createState() => OptionSelectedScreenState();
+  SiglaSelectedScreenState createState() => SiglaSelectedScreenState();
 }
 
-class OptionSelectedScreenState extends State<OptionSelectedScreen> {
+class SiglaSelectedScreenState extends State<SiglaSelectedScreen> {
   bool isRandom = false;
   final List<int> fromOptions = [1, 5, 10, 20, 30, 40, 50, 60];
   final List<int> toOptions = [5, 10, 20, 30, 40, 50, 60, 0];
@@ -57,6 +57,11 @@ class OptionSelectedScreenState extends State<OptionSelectedScreen> {
               },
             ),
             ShowOptionsRadio(
+              initialValue: rangeOption,
+              option1Value: 5,
+              option1Label: "Mostrar 5",
+              option2Value: 0,
+              option2Label: "Mostrar todo",
               onChanged: (selectedOption) {
                 setState(() {
                   rangeOption = selectedOption;

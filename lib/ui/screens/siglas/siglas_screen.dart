@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:essumin_mix/ui/screens/end_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:essumin_mix/data/option.dart';
+import 'package:essumin_mix/data/models/sigla/sigla.dart';
 import 'package:string_normalizer/string_normalizer.dart';
 
 import 'package:essumin_mix/ui/widgets/progress_bar.dart';
@@ -9,7 +11,7 @@ import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
 
 class SiglasScreen extends StatefulWidget {
   final String category;
-  final List<Option> options;
+  final List<Sigla> options;
   final bool isRandom;
   final int startIndex;
   final int endIndex;
@@ -31,10 +33,11 @@ class SiglasScreen extends StatefulWidget {
 
 class SiglasScreenState extends State<SiglasScreen> {
   int currentIndex = 0;
-  List<Option> displayedOptions = [];
+  List<Sigla> displayedOptions = [];
   String selectedCategory = '';
   bool isButtonDisabled = true;
   int score = 0;
+  int progressBarIndex = 0;
 
   final TextEditingController _textEditingController = TextEditingController();
   bool isCorrect = false;
@@ -45,32 +48,34 @@ class SiglasScreenState extends State<SiglasScreen> {
     selectedCategory =
         widget.category[0].toUpperCase() + widget.category.substring(1);
     score = 0;
+    progressBarIndex = 0;
     _updateDisplayedOptions();
   }
 
   void _updateDisplayedOptions() {
     final int startIndex = widget.startIndex - 1;
-    final int endIndex = widget.endIndex - 1;
+    final int endIndex = widget.endIndex;
 
     if (widget.isRandom) {
-      final availableIndexes =
-          List.generate(widget.options.length, (index) => index);
+      final int numElementsToShow = widget.rangeOption == 0
+          ? endIndex - startIndex
+          : min(widget.rangeOption, endIndex - startIndex);
 
-      availableIndexes.shuffle();
+      final List<int> indices = List.generate(
+        endIndex - startIndex,
+        (index) => startIndex + index,
+      );
 
-      final int limit = widget.rangeOption == 0 ? endIndex : startIndex + 5;
+      indices.shuffle();
 
-      final selectedIndexes = availableIndexes
-          .where((index) => index >= startIndex && index <= limit - 1);
-
-      displayedOptions =
-          selectedIndexes.map((index) => widget.options[index]).toList();
+      displayedOptions = indices
+          .sublist(0, numElementsToShow)
+          .map((index) => widget.options[index])
+          .toList();
     } else {
-      final int limit = widget.rangeOption == 0
-          ? endIndex
-          : startIndex == 59
-              ? endIndex
-              : startIndex + 5;
+      final int limit =
+          widget.rangeOption == 0 ? endIndex : min(endIndex, startIndex + 5);
+
       displayedOptions = widget.options.sublist(startIndex, limit);
     }
   }
@@ -93,7 +98,7 @@ class SiglasScreenState extends State<SiglasScreen> {
             children: [
               ProgressBar(
                 totalItems: displayedOptions.length,
-                currentIndex: currentIndex,
+                currentIndex: progressBarIndex,
               ),
               const SizedBox(height: 16.0),
               Text('Sigla: ${displayedOptions[currentIndex].key}'),
@@ -130,7 +135,7 @@ class SiglasScreenState extends State<SiglasScreen> {
   void _checkAnswer() {
     final String userValue =
         _textEditingController.text.trim().toLowerCase().normalize();
-    final Option currentOption = displayedOptions[currentIndex];
+    final Sigla currentOption = displayedOptions[currentIndex];
     final List<String> allValues = [
       currentOption.value.toLowerCase(),
       ...currentOption.synonyms?.map((synonym) => synonym.toLowerCase()) ?? [],
@@ -141,6 +146,9 @@ class SiglasScreenState extends State<SiglasScreen> {
         score++;
       });
     }
+    setState(() {
+      progressBarIndex++;
+    });
     _showResultDialog(isCorrect, currentOption.value);
     _updateButtonState(true);
   }

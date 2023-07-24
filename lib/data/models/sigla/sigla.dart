@@ -1,12 +1,12 @@
-class Option {
+class Sigla {
   final String key;
   final String value;
   final List<String>? synonyms;
 
-  Option(this.key, this.value, {this.synonyms});
+  Sigla(this.key, this.value, {this.synonyms});
 
-  factory Option.fromJson(Map<String, dynamic> json) {
-    return Option(
+  factory Sigla.fromJson(Map<String, dynamic> json) {
+    return Sigla(
       json['key'],
       json['value'],
       synonyms:

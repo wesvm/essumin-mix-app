@@ -11,21 +11,19 @@ class EndScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  EndScreenState createState() => EndScreenState();
+  State<EndScreen> createState() => _EndScreenState();
 }
 
-class EndScreenState extends State<EndScreen> {
-  int finalScore = 0;
-
+class _EndScreenState extends State<EndScreen> {
   @override
   Widget build(BuildContext context) {
     String message;
     if (widget.score == widget.totalItems) {
-      message = 'Tan bueno?';
+      message = 'Perfecto';
     } else if (widget.score >= widget.totalItems / 2) {
       message = 'Masomenos';
     } else {
-      message = 'Asuu eres un asno JA!';
+      message = 'Muy mal';
     }
 
     return Scaffold(

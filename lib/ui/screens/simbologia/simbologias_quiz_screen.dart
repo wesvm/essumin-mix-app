@@ -1,24 +1,24 @@
-import 'dart:math';
-
-import 'package:essumin_mix/data/models/simbologia/specific_simbologia.dart';
-import 'package:essumin_mix/ui/themes/custom_app_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:string_normalizer/string_normalizer.dart';
-
-import 'package:essumin_mix/data/models/simbologia/simbologia.dart';
-
 import 'package:essumin_mix/ui/screens/end_screen.dart';
 import 'package:essumin_mix/ui/widgets/result_dialog.dart';
+import 'package:essumin_mix/ui/widgets/simbologia/images_grid_view.dart';
+import 'package:flutter/material.dart';
+
+import 'dart:math';
+
+import 'package:essumin_mix/ui/themes/custom_app_bar.dart';
 import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
 
-class SimbologiasScreen extends StatefulWidget {
+import 'package:essumin_mix/data/models/simbologia/simbologia.dart';
+import 'package:essumin_mix/data/models/simbologia/specific_simbologia.dart';
+
+class SimbologiasQuizScreen extends StatefulWidget {
   final String category;
   final String language;
   final int rangeOption;
   final bool isRandom;
   final List<Simbologia> data;
 
-  const SimbologiasScreen(
+  const SimbologiasQuizScreen(
       {Key? key,
       required this.category,
       required this.language,
@@ -28,22 +28,22 @@ class SimbologiasScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<SimbologiasScreen> createState() => _SimbologiasScreenState();
+  State<SimbologiasQuizScreen> createState() => _SimbologiasQuizScreenState();
 }
 
-class _SimbologiasScreenState extends State<SimbologiasScreen> {
-  String selectedCategory = '';
+class _SimbologiasQuizScreenState extends State<SimbologiasQuizScreen> {
   List<SSimbologia> displayedOptions = [];
+  List<SSimbologia> displayedImageData = [];
+
   bool isButtonDisabled = true;
   int currentIndex = 0;
+  int selectedIndex = -1;
 
-  final TextEditingController _textEditingController = TextEditingController();
   bool isCorrect = false;
   int score = 0;
   int progressBarIndex = 0;
 
   late String title;
-  late String inputText;
   late String buttonText;
   late List<SSimbologia> simbologia;
 
@@ -53,18 +53,16 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
   @override
   void initState() {
     super.initState();
-    selectedCategory =
-        widget.category[0].toUpperCase() + widget.category.substring(1);
     score = 0;
     progressBarIndex = 0;
     _selectedLanguague();
     _updateDisplayedOptions();
+    _updateDisplayedImages();
   }
 
   void _selectedLanguague() {
     if (widget.language == 'es') {
       title = 'Seleccione la correcta: ';
-      inputText = 'Ingrese el valor de la simbologia';
       buttonText = 'Comprobar';
 
       resultTextTitle = ['Correcto', 'Incorrecto'];
@@ -79,7 +77,6 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
           .toList();
     } else {
       title = 'Select the correct one: ';
-      inputText = 'Enter the symbology value';
       buttonText = 'Check';
 
       resultTextTitle = ['Correct', 'Incorrect'];
@@ -107,6 +104,17 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
       final int limit = widget.rangeOption == 0 ? 5 : min(5, simbologia.length);
       displayedOptions = simbologia.sublist(0, limit);
     }
+  }
+
+  void _updateDisplayedImages() {
+    displayedImageData = [displayedOptions[currentIndex]];
+    var filtered = displayedOptions
+        .where(
+            (element) => element.value != displayedOptions[currentIndex].value)
+        .toList();
+
+    displayedImageData.addAll(filtered.take(3));
+    displayedImageData.shuffle();
   }
 
   @override
@@ -137,34 +145,47 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
               children: [
                 Text(title, style: const TextStyle(fontSize: 24)),
                 const SizedBox(height: 16.0),
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: const Color.fromRGBO(113, 128, 150, 0.25),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        displayedOptions[currentIndex].imgUrl,
-                        fit: BoxFit.contain,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 68,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color.fromRGBO(113, 128, 150, 0.25),
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            displayedOptions[currentIndex].value,
+                            style: const TextStyle(fontSize: 18.0),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
                       ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16.0),
+                Expanded(
+                  child: Center(
+                    child: ImagesGridView(
+                      data: displayedImageData,
+                      selectedIndex: selectedIndex,
+                      onItemSelected: (index) {
+                        setState(
+                          () {
+                            selectedIndex = index;
+                            _updateButtonState(selectedIndex == -1);
+                          },
+                        );
+                      },
                     ),
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                TextField(
-                  controller: _textEditingController,
-                  decoration: InputDecoration(
-                    labelText: inputText,
-                  ),
-                  onChanged: (text) {
-                    _updateButtonState(text.trim().isEmpty);
-                  },
-                ),
-                const Spacer(),
                 Row(
                   children: [
                     Expanded(
@@ -173,7 +194,7 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
                             isButtonDisabled ? null : () => _checkAnswer(),
                         child: Text(buttonText),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
@@ -195,18 +216,11 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
   }
 
   void _checkAnswer() {
-    final String userValue =
-        _textEditingController.text.trim().toLowerCase().normalize();
-    final SSimbologia currentOption = displayedOptions[currentIndex];
+    final String userValue = displayedImageData[selectedIndex].value;
+    final String currentOption = displayedOptions[currentIndex].value;
 
-    List<String> allValues = [];
+    isCorrect = currentOption == userValue;
 
-    allValues = [
-      currentOption.value.toLowerCase(),
-      ...currentOption.synonyms?.map((synonym) => synonym.toLowerCase()) ?? [],
-    ];
-
-    isCorrect = allValues.contains(userValue);
     if (isCorrect) {
       setState(() {
         score++;
@@ -215,13 +229,12 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
     setState(() {
       progressBarIndex++;
     });
-    _showResultDialog(isCorrect, currentOption.value);
+    _showResultDialog(isCorrect, currentOption);
     _updateButtonState(true);
   }
 
   void _showResultDialog(bool isCorrect, String currentOption) async {
     String title = isCorrect ? resultTextTitle[0] : resultTextTitle[1];
-
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -240,7 +253,8 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
             if (currentIndex < displayedOptions.length - 1) {
               setState(() {
                 currentIndex++;
-                _textEditingController.clear();
+                _updateDisplayedImages();
+                selectedIndex = -1;
               });
             } else {
               _showEndScreen();

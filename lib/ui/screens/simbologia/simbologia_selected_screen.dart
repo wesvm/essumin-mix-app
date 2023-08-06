@@ -1,6 +1,7 @@
 import 'package:essumin_mix/data/models/simbologia/simbologia.dart';
+import 'package:essumin_mix/ui/screens/simbologia/simbologias_quiz_screen.dart';
 import 'package:essumin_mix/ui/screens/simbologia/simbologias_screen.dart';
-import 'package:essumin_mix/ui/widgets/random_switch.dart';
+import 'package:essumin_mix/ui/themes/custom_switch.dart';
 import 'package:essumin_mix/ui/widgets/show_option_checkbox.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class SimbologiaSelectedScreen extends StatefulWidget {
 
 class SimbologiaSelectedScreenState extends State<SimbologiaSelectedScreen> {
   bool isRandom = true;
+  bool quizImage = false;
   int rangeOption = 5;
   String languageOption = 'es';
 
@@ -35,11 +37,21 @@ class SimbologiaSelectedScreenState extends State<SimbologiaSelectedScreen> {
             const SizedBox(height: 16.0),
             Text('Longitud: ${widget.data.length}'),
             const SizedBox(height: 16.0),
-            RandomSwitch(
-              value: isRandom,
+            // CustomSwitch(
+            //   label: 'Aleatorio',
+            //   value: isRandom,
+            //   onChanged: (value) {
+            //     setState(() {
+            //       isRandom = value;
+            //     });
+            //   },
+            // ),
+            CustomSwitch(
+              label: 'Quiz Image',
+              value: quizImage,
               onChanged: (value) {
                 setState(() {
-                  isRandom = value;
+                  quizImage = value;
                 });
               },
             ),
@@ -55,7 +67,6 @@ class SimbologiaSelectedScreenState extends State<SimbologiaSelectedScreen> {
                 });
               },
             ),
-            const SizedBox(height: 16.0),
             ShowOptionsRadio<String>(
               initialValue: languageOption,
               option1Value: 'es',
@@ -74,13 +85,19 @@ class SimbologiaSelectedScreenState extends State<SimbologiaSelectedScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SimbologiasScreen(
-                      category: widget.category,
-                      data: widget.data,
-                      rangeOption: rangeOption,
-                      language: languageOption,
-                      isRandom: isRandom,
-                    ),
+                    builder: (context) => !quizImage
+                        ? SimbologiasScreen(
+                            category: widget.category,
+                            data: widget.data,
+                            rangeOption: rangeOption,
+                            language: languageOption,
+                            isRandom: isRandom)
+                        : SimbologiasQuizScreen(
+                            category: widget.category,
+                            language: languageOption,
+                            rangeOption: rangeOption,
+                            isRandom: isRandom,
+                            data: widget.data),
                   ),
                 );
               },

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "348132974322",
+    "project_id": "essumin-mix",
+    "storage_bucket": "essumin-mix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348132974322:android:5ef640c314d4bc8388fa6b",
+        "android_client_info": {
+          "package_name": "com.example.essumin_mix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348132974322-ogde01tru681jdc8cepcmtalitqfkbj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz5z6hh0A0sWmAxP65UVdcl5pLxF_Eqow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348132974322-ogde01tru681jdc8cepcmtalitqfkbj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

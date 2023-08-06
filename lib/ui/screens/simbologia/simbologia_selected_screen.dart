@@ -37,15 +37,6 @@ class SimbologiaSelectedScreenState extends State<SimbologiaSelectedScreen> {
             const SizedBox(height: 16.0),
             Text('Longitud: ${widget.data.length}'),
             const SizedBox(height: 16.0),
-            // CustomSwitch(
-            //   label: 'Aleatorio',
-            //   value: isRandom,
-            //   onChanged: (value) {
-            //     setState(() {
-            //       isRandom = value;
-            //     });
-            //   },
-            // ),
             CustomSwitch(
               label: 'Quiz Image',
               value: quizImage,

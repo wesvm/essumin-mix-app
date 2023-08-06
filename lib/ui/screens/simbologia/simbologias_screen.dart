@@ -32,6 +32,7 @@ class SimbologiasScreen extends StatefulWidget {
 }
 
 class _SimbologiasScreenState extends State<SimbologiasScreen> {
+  bool closeScreen = false;
   String selectedCategory = '';
   List<SSimbologia> displayedOptions = [];
   bool isButtonDisabled = true;
@@ -111,13 +112,15 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (closeScreen) {
+      Future.delayed(Duration.zero, () {
+        Navigator.pop(context);
+      });
+    }
+
     return WillPopScope(
       onWillPop: () async {
-        final shouldReturnPrevious = await showDialog(
-          context: context,
-          builder: (_) => const ReturnPreviousScreenPopup(),
-        );
-        return shouldReturnPrevious ?? false;
+        return _showReturnPreviousScreenPopup(context);
       },
       child: Scaffold(
         appBar: _shouldShowAppBar(context)
@@ -230,24 +233,42 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
       isDismissible: false,
       enableDrag: false,
       builder: (context) {
-        return ResultDialog(
-          title: title,
-          message: currentOption,
-          textButton: resultTextButton,
-          isCorrect: isCorrect,
-          onClose: () {
-            Navigator.pop(context);
-            if (currentIndex < displayedOptions.length - 1) {
+        return WillPopScope(
+          onWillPop: () async {
+            bool shouldPop = await _showReturnPreviousScreenPopup(context);
+            if (shouldPop) {
               setState(() {
-                currentIndex++;
-                _textEditingController.clear();
+                closeScreen = true;
               });
-            } else {
-              _showEndScreen();
             }
+            return shouldPop;
           },
+          child: ResultDialog(
+            title: title,
+            message: currentOption,
+            textButton: resultTextButton,
+            isCorrect: isCorrect,
+            onClose: () {
+              Navigator.pop(context);
+              if (currentIndex < displayedOptions.length - 1) {
+                setState(() {
+                  currentIndex++;
+                  _textEditingController.clear();
+                });
+              } else {
+                _showEndScreen();
+              }
+            },
+          ),
         );
       },
+    );
+  }
+
+  Future<bool> _showReturnPreviousScreenPopup(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) => const ReturnPreviousScreenPopup(),
     );
   }
 

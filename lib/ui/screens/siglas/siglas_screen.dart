@@ -39,6 +39,7 @@ class SiglasScreenState extends State<SiglasScreen> {
   late bool useSpeech;
 
   bool closeScreen = false;
+
   int currentIndex = 0;
   List<Sigla> displayedOptions = [];
   String selectedCategory = '';
@@ -97,12 +98,15 @@ class SiglasScreenState extends State<SiglasScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (closeScreen) {
+      Future.delayed(Duration.zero, () {
+        Navigator.pop(context);
+      });
+    }
+
     return WillPopScope(
       onWillPop: () async {
-        return await showDialog(
-          context: context,
-          builder: (_) => const ReturnPreviousScreenPopup(),
-        );
+        return _showReturnPreviousScreenPopup(context);
       },
       child: Scaffold(
         appBar: _shouldShowAppBar(context)
@@ -221,10 +225,13 @@ class SiglasScreenState extends State<SiglasScreen> {
       builder: (context) {
         return WillPopScope(
           onWillPop: () async {
-            return await showDialog(
-              context: context,
-              builder: (_) => const ReturnPreviousScreenPopup(),
-            );
+            bool shouldPop = await _showReturnPreviousScreenPopup(context);
+            if (shouldPop) {
+              setState(() {
+                closeScreen = true;
+              });
+            }
+            return shouldPop;
           },
           child: ResultDialog(
             title: resultText,
@@ -246,6 +253,13 @@ class SiglasScreenState extends State<SiglasScreen> {
           ),
         );
       },
+    );
+  }
+
+  Future<bool> _showReturnPreviousScreenPopup(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) => const ReturnPreviousScreenPopup(),
     );
   }
 

@@ -11,7 +11,7 @@ class ReturnPreviousScreenPopup extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pop(false);
           },
           child: const Text('Cancelar'),
         ),

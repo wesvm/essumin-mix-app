@@ -18,21 +18,26 @@ class ProgressBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.0),
         color: const Color.fromRGBO(113, 128, 150, 0.25),
       ),
-      child: Row(
-        children: [
-          Container(
-            height: 8.0,
-            width: MediaQuery.of(context).size.width * percentage,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              gradient: const LinearGradient(
-                colors: [Color(0xFF62A7E8), Color(0xFF37C2D0)],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final progressBarWidth = constraints.maxWidth * percentage;
+          return Row(
+            children: [
+              Container(
+                height: 8.0,
+                width: progressBarWidth,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.0),
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF62A7E8), Color(0xFF37C2D0)],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                ),
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }

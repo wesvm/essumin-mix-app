@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class RandomSwitch extends StatelessWidget {
+class CustomSwitch extends StatelessWidget {
+  final String label;
   final bool value;
   final ValueChanged<bool>? onChanged;
 
-  const RandomSwitch({Key? key, required this.value, required this.onChanged})
+  const CustomSwitch(
+      {Key? key,
+      required this.label,
+      required this.value,
+      required this.onChanged})
       : super(key: key);
 
   @override
@@ -12,7 +17,7 @@ class RandomSwitch extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Aleatorio'),
+        Text(label),
         Switch(
           value: value,
           onChanged: onChanged,

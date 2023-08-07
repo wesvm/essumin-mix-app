@@ -1,3 +1,4 @@
+import 'package:essumin_mix/ui/screens/siglas/siglas_tts_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:essumin_mix/data/models/sigla/sigla.dart';
 
@@ -101,15 +102,23 @@ class SiglaSelectedScreenState extends State<SiglaSelectedScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SiglasScreen(
-                      category: widget.category,
-                      options: widget.options,
-                      isRandom: isRandom,
-                      startIndex: startIndex,
-                      endIndex: endIndex,
-                      rangeOption: rangeOption,
-                      useSpeech: useSpeech,
-                    ),
+                    builder: (context) => !useSpeech
+                        ? SiglasScreen(
+                            category: widget.category,
+                            options: widget.options,
+                            isRandom: isRandom,
+                            startIndex: startIndex,
+                            endIndex: endIndex,
+                            rangeOption: rangeOption,
+                          )
+                        : SiglasTtsScreen(
+                            category: widget.category,
+                            options: widget.options,
+                            isRandom: isRandom,
+                            startIndex: startIndex,
+                            endIndex: endIndex,
+                            rangeOption: rangeOption,
+                          ),
                   ),
                 );
               },

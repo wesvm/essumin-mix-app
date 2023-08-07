@@ -1,16 +1,16 @@
+import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:essumin_mix/data/models/sigla/sigla.dart';
 import 'package:essumin_mix/ui/screens/end_screen.dart';
 import 'package:essumin_mix/ui/themes/custom_app_bar.dart';
-import 'package:essumin_mix/ui/widgets/sigla/container_text_sigla.dart';
-import 'package:flutter/material.dart';
-import 'package:essumin_mix/data/models/sigla/sigla.dart';
-import 'package:string_normalizer/string_normalizer.dart';
-
 import 'package:essumin_mix/ui/widgets/result_dialog.dart';
 import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
+import 'package:essumin_mix/ui/widgets/sigla/text_tts_widget.dart';
 
-class SiglasScreen extends StatefulWidget {
+import 'package:string_normalizer/string_normalizer.dart';
+
+class SiglasTtsScreen extends StatefulWidget {
   final String category;
   final List<Sigla> options;
   final bool isRandom;
@@ -18,21 +18,20 @@ class SiglasScreen extends StatefulWidget {
   final int endIndex;
   final int rangeOption;
 
-  const SiglasScreen(
-      {Key? key,
-      required this.category,
+  const SiglasTtsScreen(
+      {required this.category,
       required this.options,
       required this.isRandom,
       required this.startIndex,
       required this.endIndex,
-      required this.rangeOption})
-      : super(key: key);
+      required this.rangeOption,
+      super.key});
 
   @override
-  SiglasScreenState createState() => SiglasScreenState();
+  State<SiglasTtsScreen> createState() => _SiglasTtsScreenState();
 }
 
-class SiglasScreenState extends State<SiglasScreen> {
+class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
   bool closeScreen = false;
 
   int currentIndex = 0;
@@ -43,6 +42,9 @@ class SiglasScreenState extends State<SiglasScreen> {
   bool isCorrect = false;
 
   final TextEditingController _textEditingController = TextEditingController();
+
+  TtsState ttsState = TtsState.stopped;
+  bool showText = false;
 
   @override
   void initState() {
@@ -96,59 +98,61 @@ class SiglasScreenState extends State<SiglasScreen> {
     }
 
     return WillPopScope(
-      onWillPop: () async {
-        return _showReturnPreviousScreenPopup(context);
-      },
-      child: Scaffold(
-        appBar: _shouldShowAppBar(context)
-            ? CustomAppBar(
-                progressBarIndex: progressBarIndex,
-                totalItems: displayedOptions.length,
-                onLeadingPressed: () {
-                  Navigator.of(context).maybePop();
-                })
-            : null,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Sigla:', style: TextStyle(fontSize: 24)),
-                const SizedBox(height: 16.0),
-                Center(
-                  child: ContainerTextWidget(
-                      text: displayedOptions[currentIndex].key),
-                ),
-                const SizedBox(height: 16.0),
-                TextField(
-                  controller: _textEditingController,
-                  decoration: const InputDecoration(
-                    labelText: 'Ingrese el valor de la sigla',
-                  ),
-                  onChanged: (text) {
-                    _updateButtonState(text.trim().isEmpty);
-                  },
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed:
-                            isButtonDisabled ? null : () => _checkAnswer(),
-                        child: const Text('Comprobar'),
-                      ),
+        onWillPop: () async {
+          return _showReturnPreviousScreenPopup(context);
+        },
+        child: Scaffold(
+          appBar: _shouldShowAppBar(context)
+              ? CustomAppBar(
+                  progressBarIndex: progressBarIndex,
+                  totalItems: displayedOptions.length,
+                  onLeadingPressed: () {
+                    Navigator.of(context).maybePop();
+                  })
+              : null,
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Sigla:', style: TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16.0),
+                  Center(
+                    child: SpeakableTextWidget(
+                      text: displayedOptions[currentIndex].key,
+                      showText: showText,
+                      ttsState: ttsState,
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  const SizedBox(height: 16.0),
+                  TextField(
+                    controller: _textEditingController,
+                    decoration: const InputDecoration(
+                      labelText: 'Ingrese el valor de la sigla',
+                    ),
+                    onChanged: (text) {
+                      _updateButtonState(text.trim().isEmpty);
+                    },
+                  ),
+                  const Spacer(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed:
+                              isButtonDisabled ? null : () => _checkAnswer(),
+                          child: const Text('Comprobar'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 
   bool _shouldShowAppBar(BuildContext context) {
@@ -179,7 +183,15 @@ class SiglasScreenState extends State<SiglasScreen> {
       progressBarIndex++;
     });
     _showResultDialog(isCorrect, currentOption.value);
+    _resetSpeakableTtsWidgetState();
     _updateButtonState(true);
+  }
+
+  void _resetSpeakableTtsWidgetState() {
+    setState(() {
+      ttsState = TtsState.stopped;
+      showText = false;
+    });
   }
 
   void _showResultDialog(bool isCorrect, String currentOption) async {

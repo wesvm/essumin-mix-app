@@ -1,5 +1,5 @@
 import 'package:essumin_mix/data/models/sigla/sigla.dart';
-import 'package:essumin_mix/ui/screens/acronyms/acronyms_info.dart';
+import 'package:essumin_mix/ui/screens/acronyms/acronyms_info_screen.dart';
 import 'package:essumin_mix/ui/screens/acronyms/acronyms_screen.dart';
 import 'package:essumin_mix/ui/themes/custom_switch.dart';
 import 'package:essumin_mix/ui/widgets/help_icon_button.dart';

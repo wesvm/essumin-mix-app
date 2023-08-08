@@ -1,3 +1,4 @@
+import 'package:essumin_mix/data/models/sigla/acronym_loader.dart';
 import 'package:flutter/material.dart';
 
 import 'package:essumin_mix/data/models/sigla/sigla.dart';
@@ -16,12 +17,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<Map<String, List<Sigla>>> _siglasData;
+  late Future<Map<String, List<Sigla>>> _acronymsData;
   late Future<Map<String, List<Simbologia>>> _simbologiasData;
 
   @override
   void initState() {
     super.initState();
     _siglasData = SiglaLoader().loadSiglaData();
+    _acronymsData = AcronymLoader().loadAcronymData();
     _simbologiasData = SimbologiaLoader().loadSimbologiaData();
   }
 
@@ -33,6 +36,33 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            FutureBuilder(
+              future: _acronymsData,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return const Center(child: Text('Error al cargar los datos'));
+                } else {
+                  final Map<String, List<Sigla>> data = snapshot.data!;
+
+                  return ElevatedButton(
+                    style: ButtonStyle(
+                      fixedSize: MaterialStateProperty.all<Size>(
+                        const Size(150, 35),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/acronyms', arguments: {
+                        'data': data['mecanica'],
+                      });
+                    },
+                    child: const Text('Acronyms'),
+                  );
+                }
+              },
+            ),
+            const SizedBox(height: 16.0),
             FutureBuilder(
               future: _siglasData,
               builder: (context, snapshot) {
@@ -52,7 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       showDialog(
                         context: context,
-                        builder: (_) => SiglaStartPopup(siglasData: data),
+                        builder: (_) => SiglaStartPopup(
+                          siglasData: data,
+                        ),
                       );
                     },
                     child: const Text('Siglas'),

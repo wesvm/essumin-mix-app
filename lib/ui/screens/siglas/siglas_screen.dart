@@ -227,10 +227,12 @@ class SiglasScreenState extends State<SiglasScreen> {
   }
 
   Future<bool> _showReturnPreviousScreenPopup(BuildContext context) async {
-    return await showDialog(
+    bool? result = await showDialog(
       context: context,
       builder: (context) => const ReturnPreviousScreenPopup(),
     );
+
+    return result ?? false;
   }
 
   void _showEndScreen() {

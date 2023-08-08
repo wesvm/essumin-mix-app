@@ -48,7 +48,6 @@ class _SpeakableTextWidgetState extends State<SpeakableTextWidget> {
       _stopSpeaking();
       return;
     }
-
     await flutterTts.setLanguage('en-US');
     await flutterTts.setSpeechRate(speechRate);
 

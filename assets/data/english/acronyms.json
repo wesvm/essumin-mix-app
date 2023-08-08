@@ -1,0 +1,143 @@
+{
+    "mecanica": [
+        {
+            "key": "ABA",
+            "value": "ANTI-LOCK BRAKING SYSTEM",
+            "synonyms": [
+                "ANTI LOCK BRAKING SYSTEM",
+                "ANTILOCK BRAKING SYSTEM"
+            ]
+        },
+        {
+            "key": "ACERT",
+            "value": "ADVANCED COMBUSTION EMISSION REDUCTION TECHNOLOGY"
+        },
+        {
+            "key": "AEC",
+            "value": "AUTOMATIC ENGINE CONTROL"
+        },
+        {
+            "key": "AFEX",
+            "value": "ANTI-FIRE EXTINGUISHER",
+            "synonyms": [
+                "ANTI FIRE EXTINGUISHER",
+                "ANTIFIRE EXTINGUISHER"
+            ]
+        },
+        {
+            "key": "API",
+            "value": "AMERICAN PETROLEUM INSTITUTE",
+            "synonyms": [
+                "INSTITUTE AMERICAN PETROLEUM"
+            ]
+        },
+        {
+            "key": "CMS",
+            "value": "COMPUTERIZED MONITORING SYSTEM"
+        },
+        {
+            "key": "ECM",
+            "value": "ELECTRONIC CONTROL MODULE"
+        },
+        {
+            "key": "EMP",
+            "value": "ELECTRONIC MONITORING PANEL"
+        },
+        {
+            "key": "EPI",
+            "value": "EQUIPMENT PROTECTION INDIVIDUAL"
+        },
+        {
+            "key": "EPP",
+            "value": "EQUIPMENT PROTECTION PERSONAL"
+        },
+        {
+            "key": "EUI",
+            "value": "ELECTRONIC UNIT INJECTOR",
+            "synonyms": [
+                "ELECTRONIC UNIT INJECTION"
+            ]
+        },
+        {
+            "key": "PSI",
+            "value": "POUNDS PER SQUARE INCH",
+            "synonyms": [
+                "POUNDS SQUARE INCH"
+            ]
+        },
+        {
+            "key": "SAE",
+            "value": "SOCIETY OF AUTOMOTIVE ENGINEERS",
+            "synonyms": [
+                "SOCIETY AUTOMOTIVE ENGINEERS"
+            ]
+        },
+        {
+            "key": "FOPS",
+            "value": "FALLING OBJECT PROTECTIVE STRUCTURE",
+            "synonyms": [
+                "FALLING OBJECTS PROTECTIVE STRUCTURE"
+            ]
+        },
+        {
+            "key": "GPB",
+            "value": "GENERAL PURPOSE BUCKET"
+        },
+        {
+            "key": "HDB",
+            "value": "HEAVY DUTY BUCKET"
+        },
+        {
+            "key": "HEUI",
+            "value": "HYDRAULIC ELECTRONIC UNIT INJECTOR",
+            "synonyms": [
+                "HYDRAULIC ELECTRONIC UNIT INJECTION"
+            ]
+        },
+        {
+            "key": "ISO",
+            "value": "INTERNATIONAL ORGANIZATION FOR STANDARDIZATION"
+        },
+        {
+            "key": "LCD",
+            "value": "LIQUID CRYSTAL DISPLAY"
+        },
+        {
+            "key": "MUI",
+            "value": "MECHANICAL UNIT INJECTOR",
+            "synonyms": [
+                "MECHANICAL UNIT INJECTION",
+                "MECHANIC UNIT INJECTOR",
+                "MECHANIC UNIT INJECTION"
+            ]
+        },
+        {
+            "key": "ROPS",
+            "value": "ROLL-OVER PROTECTIVE STRUCTURE",
+            "synonyms": [
+                "ROLL OVER PROTECTIVE STRUCTURE",
+                "ROLLOVER PROTECTIVE STRUCTURE"
+            ]
+        },
+        {
+            "key": "SOS",
+            "value": "SCHEDULED OIL SAMPLING"
+        },
+        {
+            "key": "STIC",
+            "value": "STEERING TRANSMISSION INTEGRATED CONTROL"
+        },
+        {
+            "key": "VIDS",
+            "value": "VITAL INFORMATION DISPLAY SYSTEM"
+        },
+        {
+            "key": "VIMS",
+            "value": "VITAL INFORMATION MANAGEMENT SYSTEM"
+        },
+        {
+            "key": "VORAD",
+            "value": "VEHICLE ON RADAR"
+        }
+    ]
+}

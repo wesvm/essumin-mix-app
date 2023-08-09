@@ -148,12 +148,10 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
 
   bool _shouldShowAppBar(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final availableHeight = mediaQuery.size.height -
-        mediaQuery.padding.top -
-        kToolbarHeight -
-        (mediaQuery.viewInsets.bottom > 0 ? mediaQuery.viewInsets.bottom : 0);
+    final keyboardHeight = mediaQuery.viewInsets.bottom;
+    final screenHeight = mediaQuery.size.height;
 
-    return availableHeight > mediaQuery.size.height / 1.5;
+    return screenHeight > keyboardHeight + screenHeight / 1.5;
   }
 
   void _checkAnswer() {

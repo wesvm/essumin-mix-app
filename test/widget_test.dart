@@ -1,30 +1,31 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:essumin_mix/data/models/sigla/sigla.dart';
+import 'package:essumin_mix/ui/screens/acronyms/acronyms_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:essumin_mix/main.dart';
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Widget should not show CustomAppBar when keyboard is covering',
+      (WidgetTester tester) async {
+    final data = List.generate(
+        10, (index) => Sigla('key test $index', 'value test $index'));
+    await tester.pumpWidget(MaterialApp(
+        home: AcronymsScreen(
+      data: data,
+      isRandom: false,
+      startIndex: 1,
+      endIndex: 5,
+      rangeOption: 5,
+    )));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.binding.setSurfaceSize(const Size(800, 1000));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Simular el teclado
+    await tester.showKeyboard(find.byType(TextField));
+    await tester.pumpAndSettle();
+
+    // Cerrar el teclado simulado
+    tester.testTextInput.hide();
   });
 }

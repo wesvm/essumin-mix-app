@@ -17,11 +17,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const MyApp());
+  runApp(const EssuminApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class EssuminApp extends StatelessWidget {
+  const EssuminApp({super.key});
 
   @override
   Widget build(BuildContext context) {

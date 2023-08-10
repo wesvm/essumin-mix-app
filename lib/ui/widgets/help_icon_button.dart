@@ -22,8 +22,8 @@ class HelpIconButton extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => toScreen));
           },
           icon: const Icon(
-            Icons.help_outline,
-            size: 30,
+            Icons.question_mark,
+            size: 25,
             color: Colors.white,
           ),
         ),

@@ -37,81 +37,77 @@ class _AcronymOptionScreenState extends State<AcronymOptionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Opciones')),
-      body: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Acronym'),
-                const SizedBox(height: 16.0),
-                Text('Longitud: ${widget.data.length}'),
-                const SizedBox(height: 16.0),
-                CustomSwitch(
-                  label: 'Aleatorio',
-                  value: isRandom,
-                  onChanged: (value) {
-                    setState(() {
-                      isRandom = value;
-                    });
-                  },
-                ),
-                ShowOptionsRadio(
-                  initialValue: rangeOption,
-                  option1Value: 5,
-                  option1Label: "Mostrar 5",
-                  option2Value: 0,
-                  option2Label: "Mostrar todo",
-                  onChanged: (selectedOption) {
-                    setState(() {
-                      rangeOption = selectedOption;
-                    });
-                  },
-                ),
-                RangeDropdowns(
-                  fromOptions: fromOptions,
-                  toOptions: toOptions,
-                  startIndex: startIndex,
-                  endIndex: endIndex,
-                  onStartIndexChanged: (value) {
-                    setState(() {
-                      startIndex = value ?? 1;
-                    });
-                  },
-                  onEndIndexChanged: (value) {
-                    setState(() {
-                      endIndex = value ?? 5;
-                    });
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                ElevatedButton(
-                  onPressed: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AcronymsScreen(
-                          data: widget.data,
-                          isRandom: isRandom,
-                          startIndex: startIndex,
-                          endIndex: endIndex,
-                          rangeOption: rangeOption,
-                        ),
-                      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Acronym'),
+            const SizedBox(height: 16.0),
+            Text('Longitud: ${widget.data.length}'),
+            const SizedBox(height: 16.0),
+            CustomSwitch(
+              label: 'Aleatorio',
+              value: isRandom,
+              onChanged: (value) {
+                setState(() {
+                  isRandom = value;
+                });
+              },
+            ),
+            ShowOptionsRadio(
+              initialValue: rangeOption,
+              option1Value: 5,
+              option1Label: "Mostrar 5",
+              option2Value: 0,
+              option2Label: "Mostrar todo",
+              onChanged: (selectedOption) {
+                setState(() {
+                  rangeOption = selectedOption;
+                });
+              },
+            ),
+            RangeDropdowns(
+              fromOptions: fromOptions,
+              toOptions: toOptions,
+              startIndex: startIndex,
+              endIndex: endIndex,
+              onStartIndexChanged: (value) {
+                setState(() {
+                  startIndex = value ?? 1;
+                });
+              },
+              onEndIndexChanged: (value) {
+                setState(() {
+                  endIndex = value ?? 5;
+                });
+              },
+            ),
+            const SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AcronymsScreen(
+                      data: widget.data,
+                      isRandom: isRandom,
+                      startIndex: startIndex,
+                      endIndex: endIndex,
+                      rangeOption: rangeOption,
                     ),
-                  },
-                  child: const Text('Comenzar'),
+                  ),
                 ),
-              ],
+              },
+              child: const Text('Comenzar'),
             ),
-          ),
-          HelpIconButton(
-            toScreen: AcronymsInfo(
-              data: widget.data,
-            ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: HelpIconButton(
+        toScreen: AcronymsInfo(
+          data: widget.data,
+        ),
       ),
     );
   }

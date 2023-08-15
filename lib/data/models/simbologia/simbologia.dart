@@ -1,5 +1,6 @@
 class Simbologia {
   final String imgUrl;
+  final String? gifUrl;
   final String esValue;
   final List<String>? esSynonyms;
   final String enValue;
@@ -7,6 +8,7 @@ class Simbologia {
 
   Simbologia({
     required this.imgUrl,
+    this.gifUrl,
     required this.esValue,
     this.esSynonyms,
     required this.enValue,
@@ -16,6 +18,7 @@ class Simbologia {
   factory Simbologia.fromJson(Map<String, dynamic> json) {
     return Simbologia(
       imgUrl: json['imgUrl'],
+      gifUrl: json['gifUrl'],
       esValue: json['es_value'],
       enValue: json['en_value'],
       esSynonyms: json['es_synonyms'] != null

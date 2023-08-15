@@ -143,38 +143,38 @@ class _SimbologiasQuizScreenState extends State<SimbologiasQuizScreen> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: const TextStyle(fontSize: 24)),
-                const SizedBox(height: 16.0),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 68,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: const Color.fromRGBO(113, 128, 150, 0.25),
-                            width: 2.0,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16.0),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 68,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: const Color.fromRGBO(113, 128, 150, 0.25),
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            displayedOptions[currentIndex].value,
-                            style: const TextStyle(fontSize: 18.0),
-                            textAlign: TextAlign.center,
+                          child: Center(
+                            child: Text(
+                              displayedOptions[currentIndex].value,
+                              style: const TextStyle(fontSize: 18.0),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16.0),
-                Expanded(
-                  child: Center(
+                    ],
+                  ),
+                  const SizedBox(height: 16.0),
+                  Center(
                     child: ImagesGridView(
                       data: displayedImageData,
                       selectedIndex: selectedIndex,
@@ -188,21 +188,18 @@ class _SimbologiasQuizScreenState extends State<SimbologiasQuizScreen> {
                       },
                     ),
                   ),
-                ),
-                const SizedBox(height: 16.0),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed:
-                            isButtonDisabled ? null : () => _checkAnswer(),
-                        child: Text(buttonText),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
+          ),
+        ),
+        bottomSheet: Container(
+          color: const Color(0xFF0d1117),
+          padding: const EdgeInsets.all(7.5),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: isButtonDisabled ? null : () => _checkAnswer(),
+            child: Text(buttonText),
           ),
         ),
       ),

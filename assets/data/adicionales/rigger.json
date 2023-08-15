@@ -104,6 +104,11 @@
             "en_value": "SWING (LEFT)",
             "en_synonyms": [
                 "SWING LEFT"
+            ],
+            "es_synonyms": [
+                "GIRAR A LA IZQUIERDA LA PLUMA",
+                "GIRO DE LA PLUMA",
+                "GIRAR LA PLUMA"
             ]
         },
         {
@@ -139,14 +144,20 @@
             "es_value": "AVANZAR CON LAS DOS ORUGAS",
             "en_value": "TRAVEL AHEAD",
             "es_synonyms": [
-                "AVANZAR CON DOS ORUGAS"
+                "AVANZAR CON DOS ORUGAS",
+                "AVANZAR CON AMBAS ORUGAS",
+                "AVANZAR CON LAS ORUGAS"
             ]
         },
         {
             "imgUrl": "assets/images/simbologias/rigger/giro-con-una-oruga.png",
             "gifUrl": "assets/images/simbologias/rigger/gifs/turn-left.gif",
             "es_value": "GIRO CON UNA ORUGA",
-            "en_value": "TURN LEFT"
+            "en_value": "TURN LEFT",
+            "es_synonyms": [
+                "GIRAR CON UNA ORUGA",
+                "GIRAR UNA ORUGA"
+            ]
         },
         {
             "imgUrl": "assets/images/simbologias/rigger/extender-pluma.png",

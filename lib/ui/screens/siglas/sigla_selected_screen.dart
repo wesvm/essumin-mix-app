@@ -43,102 +43,98 @@ class SiglaSelectedScreenState extends State<SiglaSelectedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Opciones')),
-      body: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                    'Sigla seleccionada: ${widget.category[0].toUpperCase()}${widget.category.substring(1)}'),
-                const SizedBox(height: 16.0),
-                Text('Longitud: ${widget.options.length}'),
-                const SizedBox(height: 16.0),
-                CustomSwitch(
-                  label: 'Aleatorio',
-                  value: isRandom,
-                  onChanged: (value) {
-                    setState(() {
-                      isRandom = value;
-                    });
-                  },
-                ),
-                CustomSwitch(
-                  label: 'Speech?',
-                  value: useSpeech,
-                  onChanged: (value) {
-                    setState(() {
-                      useSpeech = value;
-                    });
-                  },
-                ),
-                ShowOptionsRadio(
-                  initialValue: rangeOption,
-                  option1Value: 5,
-                  option1Label: "Mostrar 5",
-                  option2Value: 0,
-                  option2Label: "Mostrar todo",
-                  onChanged: (selectedOption) {
-                    setState(() {
-                      rangeOption = selectedOption;
-                    });
-                  },
-                ),
-                RangeDropdowns(
-                  fromOptions: fromOptions,
-                  toOptions: toOptions,
-                  startIndex: startIndex,
-                  endIndex: endIndex,
-                  onStartIndexChanged: (value) {
-                    setState(() {
-                      startIndex = value ?? 1;
-                    });
-                  },
-                  onEndIndexChanged: (value) {
-                    setState(() {
-                      endIndex = value ?? 5;
-                    });
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => !useSpeech
-                            ? SiglasScreen(
-                                category: widget.category,
-                                options: widget.options,
-                                isRandom: isRandom,
-                                startIndex: startIndex,
-                                endIndex: endIndex,
-                                rangeOption: rangeOption,
-                              )
-                            : SiglasTtsScreen(
-                                category: widget.category,
-                                options: widget.options,
-                                isRandom: isRandom,
-                                startIndex: startIndex,
-                                endIndex: endIndex,
-                                rangeOption: rangeOption,
-                              ),
-                      ),
-                    );
-                  },
-                  child: const Text('Comenzar'),
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+                'Sigla seleccionada: ${widget.category[0].toUpperCase()}${widget.category.substring(1)}'),
+            const SizedBox(height: 16.0),
+            Text('Longitud: ${widget.options.length}'),
+            const SizedBox(height: 16.0),
+            CustomSwitch(
+              label: 'Aleatorio',
+              value: isRandom,
+              onChanged: (value) {
+                setState(() {
+                  isRandom = value;
+                });
+              },
             ),
-          ),
-          HelpIconButton(
-            toScreen: SiglasInfo(
-              category: widget.category,
-              data: widget.options,
+            CustomSwitch(
+              label: 'Speech?',
+              value: useSpeech,
+              onChanged: (value) {
+                setState(() {
+                  useSpeech = value;
+                });
+              },
             ),
-          )
-        ],
+            ShowOptionsRadio(
+              initialValue: rangeOption,
+              option1Value: 5,
+              option1Label: "Mostrar 5",
+              option2Value: 0,
+              option2Label: "Mostrar todo",
+              onChanged: (selectedOption) {
+                setState(() {
+                  rangeOption = selectedOption;
+                });
+              },
+            ),
+            RangeDropdowns(
+              fromOptions: fromOptions,
+              toOptions: toOptions,
+              startIndex: startIndex,
+              endIndex: endIndex,
+              onStartIndexChanged: (value) {
+                setState(() {
+                  startIndex = value ?? 1;
+                });
+              },
+              onEndIndexChanged: (value) {
+                setState(() {
+                  endIndex = value ?? 5;
+                });
+              },
+            ),
+            const SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => !useSpeech
+                        ? SiglasScreen(
+                            category: widget.category,
+                            options: widget.options,
+                            isRandom: isRandom,
+                            startIndex: startIndex,
+                            endIndex: endIndex,
+                            rangeOption: rangeOption,
+                          )
+                        : SiglasTtsScreen(
+                            category: widget.category,
+                            options: widget.options,
+                            isRandom: isRandom,
+                            startIndex: startIndex,
+                            endIndex: endIndex,
+                            rangeOption: rangeOption,
+                          ),
+                  ),
+                );
+              },
+              child: const Text('Comenzar'),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: HelpIconButton(
+        toScreen: SiglasInfo(
+          category: widget.category,
+          data: widget.options,
+        ),
       ),
     );
   }

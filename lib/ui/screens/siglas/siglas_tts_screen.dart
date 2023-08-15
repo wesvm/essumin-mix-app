@@ -98,21 +98,22 @@ class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
     }
 
     return WillPopScope(
-        onWillPop: () async {
-          return _showReturnPreviousScreenPopup(context);
-        },
-        child: Scaffold(
-          appBar: _shouldShowAppBar(context)
-              ? CustomAppBar(
-                  progressBarIndex: progressBarIndex,
-                  totalItems: displayedOptions.length,
-                  onLeadingPressed: () {
-                    Navigator.of(context).maybePop();
-                  })
-              : null,
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
+      onWillPop: () async {
+        return _showReturnPreviousScreenPopup(context);
+      },
+      child: Scaffold(
+        appBar: _shouldShowAppBar(context)
+            ? CustomAppBar(
+                progressBarIndex: progressBarIndex,
+                totalItems: displayedOptions.length,
+                onLeadingPressed: () {
+                  Navigator.of(context).maybePop();
+                })
+            : null,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,7 +121,7 @@ class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
                   const Text('Sigla:', style: TextStyle(fontSize: 24)),
                   const SizedBox(height: 16.0),
                   Center(
-                    child: SpeakableTextWidget(
+                    child: TextToSpeechWidget(
                       text: displayedOptions[currentIndex].key,
                       showText: showText,
                       ttsState: ttsState,
@@ -136,23 +137,22 @@ class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
                       _updateButtonState(text.trim().isEmpty);
                     },
                   ),
-                  const Spacer(),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed:
-                              isButtonDisabled ? null : () => _checkAnswer(),
-                          child: const Text('Comprobar'),
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),
           ),
-        ));
+        ),
+        bottomSheet: Container(
+          color: const Color(0xFF0d1117),
+          padding: const EdgeInsets.all(7.5),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: isButtonDisabled ? null : () => _checkAnswer(),
+            child: const Text('Comprobar'),
+          ),
+        ),
+      ),
+    );
   }
 
   bool _shouldShowAppBar(BuildContext context) {

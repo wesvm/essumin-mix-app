@@ -1,4 +1,6 @@
 import 'package:essumin_mix/data/models/sigla/acronym_loader.dart';
+import 'package:essumin_mix/data/models/simbologia/rigger_loader.dart';
+import 'package:essumin_mix/ui/widgets/adicionales/start_popup.dart';
 import 'package:flutter/material.dart';
 
 import 'package:essumin_mix/data/models/sigla/sigla.dart';
@@ -19,13 +21,51 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<Map<String, List<Sigla>>> _siglasData;
   late Future<Map<String, List<Sigla>>> _acronymsData;
   late Future<Map<String, List<Simbologia>>> _simbologiasData;
+  late Future<Map<String, List<Simbologia>>> _riggerData;
 
   @override
   void initState() {
     super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
     _siglasData = SiglaLoader().loadSiglaData();
-    _acronymsData = AcronymLoader().loadAcronymData();
     _simbologiasData = SimbologiaLoader().loadSimbologiaData();
+    _acronymsData = AcronymLoader().loadAcronymData();
+    _riggerData = RiggerLoader().loadRiggerData();
+  }
+
+  ElevatedButton _buildElevatedButton<T>(
+      String buttonText, Map<String, List<T>> data, void Function() onPressed) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        fixedSize: MaterialStateProperty.all<Size>(
+          const Size(150, 35),
+        ),
+      ),
+      onPressed: onPressed,
+      child: Text(buttonText),
+    );
+  }
+
+  FutureBuilder<Map<String, List<T>>> _buildFutureBuilder<T>(
+      Future<Map<String, List<T>>> future,
+      String errorMessage,
+      Widget Function(Map<String, List<T>> data) builder) {
+    return FutureBuilder<Map<String, List<T>>>(
+      future: future,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text(errorMessage));
+        } else {
+          final Map<String, List<T>> data = snapshot.data!;
+          return builder(data);
+        }
+      },
+    );
   }
 
   @override
@@ -36,42 +76,53 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FutureBuilder(
-              future: _acronymsData,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return const Center(child: Text('Error al cargar los datos'));
-                } else {
-                  final Map<String, List<Sigla>> data = snapshot.data!;
-
-                  return ElevatedButton(
-                    style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all<Size>(
-                        const Size(150, 35),
-                      ),
+            _buildFutureBuilder(
+              _siglasData,
+              'Error al cargar los datos de Siglas',
+              (data) => _buildElevatedButton(
+                'Siglas',
+                data,
+                () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => SiglaStartPopup(
+                      siglasData: data,
                     ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/acronyms', arguments: {
-                        'data': data['mecanica'],
-                      });
-                    },
-                    child: const Text('Acronyms'),
                   );
-                }
-              },
+                },
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            _buildFutureBuilder(
+              _simbologiasData,
+              'Error al cargar los datos de Simbologias',
+              (data) => _buildElevatedButton(
+                'Simbologias',
+                data,
+                () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => SimbologiaStartPopup(
+                      simbologiasData: data,
+                    ),
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 16.0),
             FutureBuilder(
-              future: _siglasData,
-              builder: (context, snapshot) {
+              future: Future.wait([_acronymsData, _riggerData]),
+              builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return const Center(child: Text('Error al cargar los datos'));
+                  return const Center(
+                      child: Text('Error al cargar los datos adicionales'));
                 } else {
-                  final Map<String, List<Sigla>> data = snapshot.data!;
+                  final Map<String, List<Sigla>> acronymsData =
+                      snapshot.data![0];
+                  final Map<String, List<Simbologia>> riggerData =
+                      snapshot.data![1];
 
                   return ElevatedButton(
                     style: ButtonStyle(
@@ -82,41 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       showDialog(
                         context: context,
-                        builder: (_) => SiglaStartPopup(
-                          siglasData: data,
+                        builder: (_) => AdicionalesStartPopup(
+                          acronymsData: acronymsData['mechanics']!,
+                          riggerData: riggerData['rigger']!,
                         ),
                       );
                     },
-                    child: const Text('Siglas'),
-                  );
-                }
-              },
-            ),
-            const SizedBox(height: 16.0),
-            FutureBuilder(
-              future: _simbologiasData,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return const Center(child: Text('Error al cargar los datos'));
-                } else {
-                  final Map<String, List<Simbologia>> data = snapshot.data!;
-
-                  return ElevatedButton(
-                    style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all<Size>(
-                        const Size(150, 35),
-                      ),
-                    ),
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (_) =>
-                            SimbologiaStartPopup(simbologiasData: data),
-                      );
-                    },
-                    child: const Text('Simbologias'),
+                    child: const Text('Adicionales'),
                   );
                 }
               },

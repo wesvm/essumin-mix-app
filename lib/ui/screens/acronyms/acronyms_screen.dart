@@ -6,6 +6,7 @@ import 'package:essumin_mix/ui/themes/custom_app_bar.dart';
 import 'package:essumin_mix/ui/widgets/result_dialog.dart';
 import 'package:essumin_mix/ui/widgets/return_previous_screen_popup.dart';
 import 'package:essumin_mix/ui/widgets/sigla/container_text_sigla.dart';
+import 'package:essumin_mix/ui/widgets/sigla/speech_stt_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:string_normalizer/string_normalizer.dart';
 
@@ -106,42 +107,40 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
                 })
             : null,
         body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Acronym:', style: TextStyle(fontSize: 24)),
-              const SizedBox(height: 16.0),
-              Center(
-                child:
-                    ContainerTextWidget(text: displayedData[currentIndex].key),
-              ),
-              const SizedBox(height: 16.0),
-              TextField(
-                controller: _textEditingController,
-                decoration: const InputDecoration(
-                  labelText: 'Input the acronym value: ',
-                ),
-                onChanged: (text) {
-                  _updateButtonState(text.trim().isEmpty);
-                },
-              ),
-              const Spacer(),
-              Row(
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: isButtonDisabled ? null : () => _checkAnswer(),
-                      child: const Text('Check'),
-                    ),
+                  const Text('Acronym:', style: TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16.0),
+                  Center(
+                    child: ContainerTextWidget(
+                        text: displayedData[currentIndex].key),
+                  ),
+                  const SizedBox(height: 16.0),
+                  SpeechToTextWidget(
+                    language: 'en',
+                    labelText: 'Input the acronym value: ',
+                    textEditingController: _textEditingController,
+                    onChanged: _updateButtonState,
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        )),
+        ),
+        bottomSheet: Container(
+          color: const Color(0xFF0d1117),
+          padding: const EdgeInsets.all(7.5),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: isButtonDisabled ? null : () => _checkAnswer(),
+            child: const Text('Check'),
+          ),
+        ),
       ),
     );
   }
@@ -208,6 +207,7 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
                 setState(() {
                   currentIndex++;
                   _textEditingController.clear();
+                  FocusScope.of(context).unfocus();
                 });
               } else {
                 _showEndScreen();

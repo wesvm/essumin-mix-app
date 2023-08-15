@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:essumin_mix/data/models/simbologia/specific_simbologia.dart';
 import 'package:essumin_mix/ui/themes/custom_app_bar.dart';
+import 'package:essumin_mix/ui/widgets/sigla/speech_stt_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:string_normalizer/string_normalizer.dart';
 
@@ -64,7 +65,7 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
 
   void _selectedLanguague() {
     if (widget.language == 'es') {
-      title = 'Seleccione la correcta: ';
+      title = 'Simbologia: ';
       inputText = 'Ingrese el valor de la simbologia';
       buttonText = 'Comprobar';
 
@@ -79,7 +80,7 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
               ))
           .toList();
     } else {
-      title = 'Select the correct one: ';
+      title = 'Symbology: ';
       inputText = 'Enter the symbology value';
       buttonText = 'Check';
 
@@ -134,53 +135,49 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: const TextStyle(fontSize: 24)),
-                const SizedBox(height: 16.0),
-                Center(
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: const Color.fromRGBO(113, 128, 150, 0.25),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: Image.asset(
-                        displayedOptions[currentIndex].imgUrl,
-                        fit: BoxFit.contain,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: const TextStyle(fontSize: 24)),
+                  const SizedBox(height: 16.0),
+                  Center(
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color.fromRGBO(113, 128, 150, 0.25),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.asset(
+                          displayedOptions[currentIndex].imgUrl,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 16.0),
-                TextField(
-                  controller: _textEditingController,
-                  decoration: InputDecoration(
+                  const SizedBox(height: 16.0),
+                  SpeechToTextWidget(
+                    language: widget.language,
                     labelText: inputText,
+                    onChanged: _updateButtonState,
+                    textEditingController: _textEditingController,
                   ),
-                  onChanged: (text) {
-                    _updateButtonState(text.trim().isEmpty);
-                  },
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed:
-                            isButtonDisabled ? null : () => _checkAnswer(),
-                        child: Text(buttonText),
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
+          ),
+        ),
+        bottomSheet: Container(
+          color: const Color(0xFF0d1117),
+          padding: const EdgeInsets.all(7.5),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: isButtonDisabled ? null : () => _checkAnswer(),
+            child: Text(buttonText),
           ),
         ),
       ),
@@ -254,6 +251,7 @@ class _SimbologiasScreenState extends State<SimbologiasScreen> {
                 setState(() {
                   currentIndex++;
                   _textEditingController.clear();
+                  FocusScope.of(context).unfocus();
                 });
               } else {
                 _showEndScreen();

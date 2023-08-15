@@ -33,6 +33,7 @@ class SimbologiasInfo extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 8.0),
                   Container(
                     width: 150,
                     height: 150,

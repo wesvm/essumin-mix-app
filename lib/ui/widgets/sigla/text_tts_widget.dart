@@ -5,12 +5,12 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 enum TtsState { playing, stopped, paused, continued }
 
-class SpeakableTextWidget extends StatefulWidget {
+class TextToSpeechWidget extends StatefulWidget {
   final String text;
   final bool showText;
   final TtsState ttsState;
 
-  const SpeakableTextWidget({
+  const TextToSpeechWidget({
     Key? key,
     required this.text,
     required this.showText,
@@ -18,10 +18,10 @@ class SpeakableTextWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SpeakableTextWidget> createState() => _SpeakableTextWidgetState();
+  State<TextToSpeechWidget> createState() => _TextToSpeechWidgetState();
 }
 
-class _SpeakableTextWidgetState extends State<SpeakableTextWidget> {
+class _TextToSpeechWidgetState extends State<TextToSpeechWidget> {
   final FlutterTts flutterTts = FlutterTts();
 
   late TtsState ttsState;
@@ -37,7 +37,7 @@ class _SpeakableTextWidgetState extends State<SpeakableTextWidget> {
   }
 
   @override
-  void didUpdateWidget(covariant SpeakableTextWidget oldWidget) {
+  void didUpdateWidget(covariant TextToSpeechWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     ttsState = widget.ttsState;
     showText = widget.showText;

@@ -1,4 +1,5 @@
 import 'package:essumin_mix/ui/screens/acronyms/acronym_option_screen.dart';
+import 'package:essumin_mix/ui/screens/rigger/rigger_option_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:essumin_mix/data/models/sigla/sigla.dart';
@@ -79,6 +80,15 @@ class _MainScreenState extends State<MainScreen> {
           final List<Sigla> data = routeArguments['data'] as List<Sigla>;
 
           return AcronymOptionScreen(data: data);
+        },
+        '/rigger': (context) {
+          final Map<String, dynamic> routeArguments = ModalRoute.of(context)!
+              .settings
+              .arguments as Map<String, dynamic>;
+          final List<Simbologia> data =
+              routeArguments['data'] as List<Simbologia>;
+
+          return RiggerOptionScreen(data: data);
         },
         '/siglas': (context) {
           final Map<String, dynamic> routeArguments = ModalRoute.of(context)!

@@ -1,0 +1,191 @@
+{
+    "rigger": [
+        {
+            "imgUrl": "assets/images/simbologias/rigger/subir-carga.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/subir-carga.gif",
+            "es_value": "SUBIR CARGA",
+            "en_value": "HOIST",
+            "es_synonyms": [
+                "SUBIR LA CARGA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/bajar-carga.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/bajar-carga.gif",
+            "es_value": "BAJAR CARGA",
+            "en_value": "LOWER",
+            "es_synonyms": [
+                "BAJAR LA CARGA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/usar-gancho-principal.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/usar-gancho-principal.gif",
+            "es_value": "USAR GANCHO PRINCIPAL",
+            "en_value": "USE MAIN HOIST",
+            "es_synonyms": [
+                "UTILIZAR GANCHO PRINCIPAL",
+                "UTILIZAR EL GANCHO PRINCIPAL",
+                "USAR EL GANCHO PRINCIPAL"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/usar-gancho-auxiliar.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/usar-gancho-auxiliar.gif",
+            "es_value": "USAR GANCHO AUXILIAR",
+            "en_value": "USE WHIPLINE",
+            "en_synonyms": [
+                "USE WHIPE LINE"
+            ],
+            "es_synonyms": [
+                "UTILIZAR GANCHO AUXILIAR",
+                "UTILIZAR EL GANCHO AUXILIAR",
+                "USAR EL GANCHO AUXILIAR"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/subir-pluma.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/subir-pluma.gif",
+            "es_value": "SUBIR PLUMA",
+            "en_value": "RAISE BOOM",
+            "es_synonyms": [
+                "SUBIR LA PLUMA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/bajar-pluma.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/bajar-pluma.gif",
+            "es_value": "BAJAR PLUMA",
+            "en_value": "LOWER BOOM",
+            "es_synonyms": [
+                "BAJAR LA PLUMA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/mover-lentamente.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/mover-lentamente.gif",
+            "es_value": "MOVER LENTAMENTE",
+            "en_value": "MOVE SLOWLY"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/subir-pluma-bajar-carga.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/subir-pluma-bajar-carga.gif",
+            "es_value": "SUBIR PLUMA Y BAJAR CARGA",
+            "en_value": "RAISE THE BOOM AND LOWER THE LOAD",
+            "en_synonyms": [
+                "RAISE BOOM AND LOWER LOAD"
+            ],
+            "es_synonyms": [
+                "SUBIR PLUMA BAJAR CARGA",
+                "SUBIR LA PLUMA Y BAJAR LA CARGA",
+                "SUBIR LA PLUMA Y BAJAR CARGA",
+                "SUBIR PLUMA Y BAJAR LA CARGA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/bajar-pluma-subir-carga.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/bajar-pluma-subir-carga.gif",
+            "es_value": "BAJAR PLUMA Y SUBIR CARGA",
+            "en_value": "LOWER THE BOOM AND RAISE THE LOAD",
+            "en_synonyms": [
+                "LOWER BOOM AND RAISE LOAD"
+            ],
+            "es_synonyms": [
+                "BAJAR PLUMA SUBIR CARGA",
+                "BAJAR LA PLUMA Y SUBIR LA CARGA",
+                "BAJAR LA PLUMA Y SUBIR CARGA",
+                "BAJAR PLUMA Y SUBIR LA CARGA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/giro-a-la-izq-pluma.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/giro-izq-pluma.gif",
+            "es_value": "GIRO A LA IZQUIERDA DE LA PLUMA",
+            "en_value": "SWING (LEFT)",
+            "en_synonyms": [
+                "SWING LEFT"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/parar.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/parar.gif",
+            "es_value": "PARAR",
+            "en_value": "STOP"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/parada-de-emergencia.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/parada-emergencia.gif",
+            "es_value": "PARADA DE EMERGENCIA",
+            "en_value": "EMERGENCY STOP"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/mover.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/mover.gif",
+            "es_value": "MOVER",
+            "en_value": "TRAVEL",
+            "en_synonyms": [
+                "MOVE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/levantamiento-terminado.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/levantamiento-terminado.gif",
+            "es_value": "LEVANTAMIENTO TERMINADO",
+            "en_value": "DOG EVERYTHING"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/avanzar-con-las-dos-orugas.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/travel-ahead.gif",
+            "es_value": "AVANZAR CON LAS DOS ORUGAS",
+            "en_value": "TRAVEL AHEAD",
+            "es_synonyms": [
+                "AVANZAR CON DOS ORUGAS"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/giro-con-una-oruga.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/turn-left.gif",
+            "es_value": "GIRO CON UNA ORUGA",
+            "en_value": "TURN LEFT"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/extender-pluma.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/extender-pluma.gif",
+            "es_value": "EXTENDER PLUMA",
+            "en_value": "EXTEND BOOM",
+            "es_synonyms": [
+                "EXTENDER LA PLUMA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/retraer-pluma.png",
+            "gifUrl": "assets/images/simbologias/rigger/gifs/retraer-pluma.gif",
+            "es_value": "RETRAER PLUMA",
+            "en_value": "RETRACT BOOM",
+            "es_synonyms": [
+                "RETRAER LA PLUMA"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/sacar-pluma-cs.png",
+            "es_value": "SACAR PLUMA CON CUERDA DE SEGURIDAD",
+            "en_value": "EXTEND BOOM (ONE HAND)",
+            "en_synonyms": [
+                "EXTEND BOOM ONE HAND"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/meter-pluma-cs.png",
+            "es_value": "METER PLUMA CON CUERDA DE SEGURIDAD",
+            "en_value": "RETRACT BOOM (ONE HAND)",
+            "es_synonyms": [
+                "RETRACT BOOM ONE HAND"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/rigger/parar-motor.png",
+            "es_value": "PARAR EL MOTOR",
+            "en_value": "STOP ENGINE"
+        }
+    ]
+}

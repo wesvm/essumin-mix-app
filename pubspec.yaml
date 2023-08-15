@@ -12,7 +12,12 @@ dependencies:
     sdk: flutter
   string_normalizer: ^0.2.0
   url_launcher: ^6.0.4
+
+  avatar_glow: ^2.0.2
+  confetti: ^0.7.0
+
   flutter_tts: ^3.7.0
+  speech_to_text: ^6.3.0
 
   cupertino_icons: ^1.0.2
   flutter_dotenv: ^5.1.0
@@ -37,7 +42,9 @@ flutter:
   assets:
     - assets/data/siglas/
     - assets/data/simbologias/
-    - assets/data/english/
+    - assets/data/adicionales/
     - assets/images/simbologias/grua/
+    - assets/images/simbologias/rigger/
+    - assets/images/simbologias/rigger/gifs/
     - assets/images/
     - .env

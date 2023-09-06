@@ -18,9 +18,15 @@ class CustomSwitch extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(label),
-        Switch(
-          value: value,
-          onChanged: onChanged,
+        SizedBox(
+          height: 35,
+          child: FittedBox(
+            fit: BoxFit.fill,
+            child: Switch(
+              value: value,
+              onChanged: onChanged,
+            ),
+          ),
         ),
       ],
     );

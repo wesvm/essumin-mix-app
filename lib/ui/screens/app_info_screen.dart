@@ -22,6 +22,7 @@ class AppInfo extends StatelessWidget {
             const Text(
               'essumin app - practica siglas y simbologias.',
               style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             const Text(

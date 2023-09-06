@@ -31,6 +31,7 @@ class AcronymsScreen extends StatefulWidget {
 
 class _AcronymsScreenState extends State<AcronymsScreen> {
   final TextEditingController _textEditingController = TextEditingController();
+  final GlobalKey<SpeechToTextWidgetState> _sttWidget = GlobalKey();
 
   List<Sigla> displayedData = [];
 
@@ -59,22 +60,12 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
           ? endIndex - startIndex
           : min(widget.rangeOption, endIndex - startIndex);
 
-      final List<int> indices = List.generate(
-        endIndex - startIndex,
-        (index) => startIndex + index,
-      );
-
-      final Random random = Random();
-
-      for (int i = indices.length - 1; i > 0; i--) {
-        int j = random.nextInt(i + 1);
-        int temp = indices[i];
-        indices[i] = indices[j];
-        indices[j] = temp;
-      }
+      final List<int> indices =
+          List.generate(endIndex - startIndex, (index) => startIndex + index)
+            ..shuffle();
 
       displayedData = indices
-          .sublist(0, numElementsToShow)
+          .take(numElementsToShow)
           .map((index) => widget.data[index])
           .toList();
     } else {
@@ -122,6 +113,7 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
                   ),
                   const SizedBox(height: 16.0),
                   SpeechToTextWidget(
+                    key: _sttWidget,
                     language: 'en',
                     labelText: 'Input the acronym value: ',
                     textEditingController: _textEditingController,
@@ -170,6 +162,9 @@ class _AcronymsScreenState extends State<AcronymsScreen> {
     setState(() {
       progressBarIndex++;
     });
+
+    _sttWidget.currentState?.cancelListening();
+
     _showResultDialog(isCorrect, currentOption.value);
     _updateButtonState(true);
   }

@@ -25,8 +25,8 @@ class SiglaSelectedScreen extends StatefulWidget {
 class SiglaSelectedScreenState extends State<SiglaSelectedScreen> {
   bool isRandom = true;
   bool useSpeech = false;
-  final List<int> fromOptions = [1, 5, 10, 20, 30, 40, 50, 60];
-  final List<int> toOptions = [5, 10, 20, 30, 40, 50, 60, 0];
+  final List<int> fromOptions = [1];
+  final List<int> toOptions = [];
 
   int startIndex = 1;
   int endIndex = 10;
@@ -36,7 +36,15 @@ class SiglaSelectedScreenState extends State<SiglaSelectedScreen> {
   @override
   void initState() {
     super.initState();
-    toOptions[toOptions.length - 1] = widget.options.length;
+    _generateOptions();
+  }
+
+  void _generateOptions() {
+    for (int i = 10; i < widget.options.length; i += 10) {
+      fromOptions.add(i);
+      toOptions.add(i);
+    }
+    toOptions.add(widget.options.length);
   }
 
   @override

@@ -19,8 +19,8 @@ class AcronymOptionScreen extends StatefulWidget {
 class _AcronymOptionScreenState extends State<AcronymOptionScreen> {
   bool isRandom = true;
 
-  final List<int> fromOptions = [1, 5, 10, 20];
-  final List<int> toOptions = [5, 10, 15, 25, 0];
+  final List<int> fromOptions = [1];
+  final List<int> toOptions = [];
 
   int startIndex = 1;
   int endIndex = 10;
@@ -30,7 +30,15 @@ class _AcronymOptionScreenState extends State<AcronymOptionScreen> {
   @override
   void initState() {
     super.initState();
-    toOptions[toOptions.length - 1] = widget.data.length;
+    _generateOptions();
+  }
+
+  void _generateOptions() {
+    for (int i = 10; i < widget.data.length; i += 10) {
+      fromOptions.add(i);
+      toOptions.add(i);
+    }
+    toOptions.add(widget.data.length);
   }
 
   @override

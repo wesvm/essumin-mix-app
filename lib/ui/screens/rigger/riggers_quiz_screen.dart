@@ -130,14 +130,13 @@ class _RiggersQuizScreenState extends State<RiggersQuizScreen> {
         return await _showReturnPreviousScreenPopup(context);
       },
       child: Scaffold(
-        appBar: _shouldShowAppBar(context)
-            ? CustomAppBar(
-                progressBarIndex: progressBarIndex,
-                totalItems: displayedOptions.length,
-                onLeadingPressed: () {
-                  Navigator.of(context).maybePop();
-                })
-            : null,
+        appBar: CustomAppBar(
+          progressBarIndex: progressBarIndex,
+          totalItems: displayedOptions.length,
+          onLeadingPressed: () {
+            Navigator.of(context).maybePop();
+          },
+        ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -202,16 +201,6 @@ class _RiggersQuizScreenState extends State<RiggersQuizScreen> {
         ),
       ),
     );
-  }
-
-  bool _shouldShowAppBar(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final availableHeight = mediaQuery.size.height -
-        mediaQuery.padding.top -
-        kToolbarHeight -
-        (mediaQuery.viewInsets.bottom > 0 ? mediaQuery.viewInsets.bottom : 0);
-
-    return availableHeight > mediaQuery.size.height / 1.5;
   }
 
   void _checkAnswer() {

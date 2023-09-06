@@ -44,6 +44,7 @@ class SiglasScreenState extends State<SiglasScreen> {
   bool isCorrect = false;
 
   final TextEditingController _textEditingController = TextEditingController();
+  final GlobalKey<SpeechToTextWidgetState> _sttWidget = GlobalKey();
 
   @override
   void initState() {
@@ -62,22 +63,12 @@ class SiglasScreenState extends State<SiglasScreen> {
           ? endIndex - startIndex
           : min(widget.rangeOption, endIndex - startIndex);
 
-      final List<int> indices = List.generate(
-        endIndex - startIndex,
-        (index) => startIndex + index,
-      );
-
-      final Random random = Random();
-
-      for (int i = indices.length - 1; i > 0; i--) {
-        int j = random.nextInt(i + 1);
-        int temp = indices[i];
-        indices[i] = indices[j];
-        indices[j] = temp;
-      }
+      final List<int> indices =
+          List.generate(endIndex - startIndex, (index) => startIndex + index)
+            ..shuffle();
 
       displayedOptions = indices
-          .sublist(0, numElementsToShow)
+          .take(numElementsToShow)
           .map((index) => widget.options[index])
           .toList();
     } else {
@@ -107,7 +98,8 @@ class SiglasScreenState extends State<SiglasScreen> {
                 totalItems: displayedOptions.length,
                 onLeadingPressed: () {
                   Navigator.of(context).maybePop();
-                })
+                },
+              )
             : null,
         body: SafeArea(
           child: Padding(
@@ -125,6 +117,7 @@ class SiglasScreenState extends State<SiglasScreen> {
                   ),
                   const SizedBox(height: 16.0),
                   SpeechToTextWidget(
+                    key: _sttWidget,
                     language: 'es',
                     labelText: 'Ingrese el valor de la sigla',
                     onChanged: _updateButtonState,
@@ -173,6 +166,9 @@ class SiglasScreenState extends State<SiglasScreen> {
     setState(() {
       progressBarIndex++;
     });
+
+    _sttWidget.currentState?.cancelListening();
+
     _showResultDialog(isCorrect, currentOption.value);
     _updateButtonState(true);
   }

@@ -31,7 +31,7 @@ class SiglaStartPopup extends StatelessWidget {
             Column(
               children: siglasData.keys.map((category) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
@@ -40,6 +40,9 @@ class SiglaStartPopup extends StatelessWidget {
                         'options': siglasData[category],
                       });
                     },
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(150, 30),
+                    ),
                     child: Text(
                         '${category[0].toUpperCase()}${category.substring(1)}'),
                   ),

@@ -63,22 +63,12 @@ class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
           ? endIndex - startIndex
           : min(widget.rangeOption, endIndex - startIndex);
 
-      final List<int> indices = List.generate(
-        endIndex - startIndex,
-        (index) => startIndex + index,
-      );
-
-      final Random random = Random();
-
-      for (int i = indices.length - 1; i > 0; i--) {
-        int j = random.nextInt(i + 1);
-        int temp = indices[i];
-        indices[i] = indices[j];
-        indices[j] = temp;
-      }
+      final List<int> indices =
+          List.generate(endIndex - startIndex, (index) => startIndex + index)
+            ..shuffle();
 
       displayedOptions = indices
-          .sublist(0, numElementsToShow)
+          .take(numElementsToShow)
           .map((index) => widget.options[index])
           .toList();
     } else {
@@ -157,12 +147,10 @@ class _SiglasTtsScreenState extends State<SiglasTtsScreen> {
 
   bool _shouldShowAppBar(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final availableHeight = mediaQuery.size.height -
-        mediaQuery.padding.top -
-        kToolbarHeight -
-        (mediaQuery.viewInsets.bottom > 0 ? mediaQuery.viewInsets.bottom : 0);
+    final keyboardHeight = mediaQuery.viewInsets.bottom;
+    final screenHeight = mediaQuery.size.height;
 
-    return availableHeight > mediaQuery.size.height / 1.5;
+    return screenHeight > keyboardHeight + screenHeight / 1.55;
   }
 
   void _checkAnswer() {

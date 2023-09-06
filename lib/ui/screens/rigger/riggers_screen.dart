@@ -38,6 +38,7 @@ class _RiggersScreenState extends State<RiggersScreen> {
   int currentIndex = 0;
 
   final TextEditingController _textEditingController = TextEditingController();
+  final GlobalKey<SpeechToTextWidgetState> _sttWidget = GlobalKey();
   bool isCorrect = false;
   int score = 0;
   int progressBarIndex = 0;
@@ -147,6 +148,7 @@ class _RiggersScreenState extends State<RiggersScreen> {
                   ),
                   const SizedBox(height: 16.0),
                   SpeechToTextWidget(
+                    key: _sttWidget,
                     language: widget.language,
                     labelText: inputText,
                     onChanged: _updateButtonState,
@@ -172,12 +174,10 @@ class _RiggersScreenState extends State<RiggersScreen> {
 
   bool _shouldShowAppBar(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final availableHeight = mediaQuery.size.height -
-        mediaQuery.padding.top -
-        kToolbarHeight -
-        (mediaQuery.viewInsets.bottom > 0 ? mediaQuery.viewInsets.bottom : 0);
+    final keyboardHeight = mediaQuery.viewInsets.bottom;
+    final screenHeight = mediaQuery.size.height;
 
-    return availableHeight > mediaQuery.size.height / 1.5;
+    return screenHeight > keyboardHeight + screenHeight / 1.5;
   }
 
   void _checkAnswer() {
@@ -201,6 +201,9 @@ class _RiggersScreenState extends State<RiggersScreen> {
     setState(() {
       progressBarIndex++;
     });
+
+    _sttWidget.currentState?.cancelListening();
+
     _showResultDialog(isCorrect, currentOption.value);
     _updateButtonState(true);
   }
@@ -254,7 +257,6 @@ class _RiggersScreenState extends State<RiggersScreen> {
       context: context,
       builder: (context) => const ReturnPreviousScreenPopup(),
     );
-
     return result ?? false;
   }
 

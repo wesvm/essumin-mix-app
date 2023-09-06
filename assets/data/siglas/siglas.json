@@ -395,6 +395,18 @@
         {
             "key": "NOSPIN",
             "value": "DIFERENCIAL CON PATINAJE LIMITADO"
+        },
+        {
+            "key": "SMAW",
+            "value": "SOLDADURA POR ARCO DE METAL CUBIERTO"
+        },
+        {
+            "key": "MMA",
+            "value": "SOLDADURA POR ARCO MANUAL DE METAL"
+        },
+        {
+            "key": "AWS(SOLDADURA)",
+            "value": "SOCIEDAD DE SOLDADORES AMERICANOS"
         }
     ],
     "seguridad": [

@@ -72,21 +72,43 @@ class _AcronymsInfoState extends State<AcronymsInfo> {
                   children: [
                     const SizedBox(height: 8.0),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.volume_up_rounded,
-                            color: Color.fromARGB(255, 58, 100, 238),
-                            size: 30,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Stack(
+                            alignment: Alignment.centerLeft,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 5.0),
+                                child: Text(
+                                  '${index + 1}',
+                                  style: const TextStyle(fontSize: 12.0),
+                                ),
+                              ),
+                              Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Icon(
+                                      Icons.volume_up_rounded,
+                                      color: Color.fromARGB(255, 58, 100, 238),
+                                      size: 30,
+                                    ),
+                                    const SizedBox(width: 8.0),
+                                    Text(
+                                      widget.data[index].key,
+                                      style: const TextStyle(fontSize: 20.0),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 8.0),
-                          Text(
-                            widget.data[index].key,
-                            style: const TextStyle(fontSize: 20.0),
-                            textAlign: TextAlign.center,
-                          ),
-                        ]),
+                        )
+                      ],
+                    ),
                     const SizedBox(height: 8.0),
                     Container(
                       decoration: BoxDecoration(

@@ -33,10 +33,33 @@ class SiglasInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 8.0),
-                  Text(
-                    data[index].key,
-                    style: const TextStyle(fontSize: 20.0),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.centerLeft,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: Text(
+                                '${index + 1}',
+                                style: const TextStyle(fontSize: 12.0),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                data[index].key,
+                                style: const TextStyle(fontSize: 20.0),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                   const SizedBox(height: 8.0),
                   Container(

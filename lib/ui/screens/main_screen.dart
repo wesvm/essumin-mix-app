@@ -47,6 +47,7 @@ class _MainScreenState extends State<MainScreen> {
               displayColor: Colors.white,
             ),
         elevatedButtonTheme: customElevatedButtonTheme,
+        useMaterial3: true,
       ),
       home: Scaffold(
         body: IndexedStack(

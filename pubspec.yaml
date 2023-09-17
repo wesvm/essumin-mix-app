@@ -43,6 +43,7 @@ flutter:
     - assets/data/siglas/
     - assets/data/simbologias/
     - assets/data/adicionales/
+    - assets/images/simbologias/camion-minero/
     - assets/images/simbologias/grua/
     - assets/images/simbologias/rigger/
     - assets/images/simbologias/rigger/gifs/

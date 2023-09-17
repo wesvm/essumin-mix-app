@@ -328,5 +328,216 @@
             "es_value": "CABESTRANTE",
             "en_value": "WINCH"
         }
+    ],
+    "camion minero": [
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/implement.jpg",
+            "es_value": "IMPLEMENTO",
+            "en_value": "IMPLEMENT"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-raise.jpg",
+            "es_value": "SUBIR TOLVA",
+            "es_synonyms": [
+                "ELEVAR TOLVA",
+                "LEVANTAR TOLVA",
+                "ELEVAR LA TOLVA",
+                "LEVANTAR LA TOLVA",
+                "SUBIR LA TOLVA"
+            ],
+            "en_value": "HAULER BUDY RAISE",
+            "en_synonyms": [
+                "HAULER RAISE",
+                "HAULER LIFT",
+                "HAULER BUDY RAISE",
+                "HAULER BUDY LIFT"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-lower.jpg",
+            "es_value": "BAJAR TOLVA",
+            "es_synonyms": [
+                "BAJAR LA TOLVA"
+            ],
+            "en_value": "HAULER BUDY LOWER",
+            "en_synonyms": [
+                "HAULER LOWER"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-float-position.jpg",
+            "es_value": "POSICION DE FLOTACION DE LA TOLVA",
+            "es_synonyms": [
+                "POSICION DE FLOTACION",
+                "POSICION DE FLOTACION DE TOLVA"
+            ],
+            "en_value": "HAULER BUDY FLOAT POSITION",
+            "en_synonyms": [
+                "HAULER FLOAT POSITION"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-hold-position.jpg",
+            "es_value": "POSICION FIJA DE LA TOLVA",
+            "es_synonyms": [
+                "POSICION FIJA",
+                "POSICION FIJA DE TOLVA"
+            ],
+            "en_value": "HAULER BUDY HOLD POSITION",
+            "en_synonyms": [
+                "HAULER HOLD POSITION"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-float-off.jpg",
+            "es_value": "ANULACION DE FLOTACION DE LA TOLVA",
+            "es_synonyms": [
+                "ANULACION DE FLOTACION",
+                "ANULACION DE LA FLOTACION DE LA TOLVA",
+                "ANULACION DE LA FLOTACION",
+                "ANULACION DE FLOTACION DE TOLVA"
+            ],
+            "en_value": "HAULER BUDY FLOAT OFF",
+            "en_synonyms": [
+                "HAULER FLOAT OFF"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/truck-front-brake.jpg",
+            "es_value": "FRENOS DELANTEROS DEL CAMION",
+            "es_synonyms": [
+                "FRENOS DELANTEROS"
+            ],
+            "en_value": "TRUCK FRONT BRAKES",
+            "en_synonyms": [
+                "TRUCK FRONT BRAKE"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/truck-side-view.jpg",
+            "es_value": "VISTA LATERAL DEL CAMION",
+            "es_synonyms": [
+                "VISTA LATERAL"
+            ],
+            "en_value": "TRUCK SIDE VIEW"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-heating.jpg",
+            "es_value": "CALEFACCION DE LA TOLVA",
+            "en_value": "HAULER BUDY HEATING",
+            "en_synonyms": [
+                "HAULER HEATING"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/vims.jpg",
+            "es_value": "SISTEMA DE ADMINISTRACION DE INFORMACION VITAL DE LA MAQUINA",
+            "es_synonyms": [
+                "VIMS",
+                "SISTEMA DE ADMINISTRACION DE LA INFORMACION VITAL DE LA MAQUINA",
+                "SISTEMA DE ADMINISTRACION DE LA INFORMACION VITAL PARA LA MAQUINA",
+                "SISTEMA DE ADMINISTRACION DE LA INFORMACION VITAL",
+                "SISTEMA DE ADMINISTRACION DE INFORMACION VITAL"
+            ],
+            "en_value": "VITAL INFORMATION MANAGMENT SYSTEM"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/ecm.jpg",
+            "es_value": "MODULO DE CONTROL ELECTRONICO",
+            "es_synonyms": [
+                "ECM"
+            ],
+            "en_value": "ELECTRONIC CONTROL MODULE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/grease.jpg",
+            "es_value": "GRASERA",
+            "en_value": "GREASE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/column-direction-adjustment.jpg",
+            "es_value": "AJUSTE DE LA COLUMNA DE DIRECCION",
+            "en_value": "COLUMN DIRECTION ADJUSTMENT",
+            "en_synonyms": [
+                "COLUMN DIRECTION AJUSTMENT"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/cushion-system.jpg",
+            "es_value": "SISTEMA DE SUSPENSION",
+            "en_value": "CUSHION SYSTEM"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/light-front-rear.jpg",
+            "es_value": "LUCES TRASERAS Y DELANTERAS",
+            "es_synonyms": [
+                "LUCES DELANTERAS Y TRASERAS"
+            ],
+            "en_value": "LIGHT FRONT AND REAR",
+            "en_synonyms": [
+                "LIGHT REAR AND FRONT",
+                "LIGHTS REAR AND FRONT",
+                "LIGHTS FRONT AND REAR",
+                "FRONT AND REAR LIGHTS"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/neutralizer.jpg",
+            "es_value": "NEUTRALIZADOR",
+            "en_value": "NEUTRALIZER"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/tank-oil-brake-direction.jpg",
+            "es_value": "DEPOSITO DE ACEITE DE DIRECCION Y FRENOS",
+            "es_synonyms": [
+                "DEPOSITO DE ACEITE DE DIRECCION Y DE FRENOS"
+            ],
+            "en_value": "TANK OIL BRAKE AND STEERING",
+            "en_synonyms": [
+                "TANK OIL BRAKE AND DIRECTION",
+                "BRAKE AND STEERING OIL TANK"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/hauler-max-payload.jpg",
+            "es_value": "CAPACIDAD MAXIMA DE LA TOLVA",
+            "en_value": "HAULER BUDY MAX PAYLOAD",
+            "en_synonyms": [
+                "HAULER MAX PAYLOAD"
+            ]
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/retarder.jpg",
+            "es_value": "RETARDADOR",
+            "en_value": "RETARDER"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/retarder-oil-temperature.jpg",
+            "es_value": "TEMPERATURA DEL ACEITE DEL RETARDADOR",
+            "es_synonyms": [
+                "TEMPERATURA DE ACEITE DEL RETARDADOR"
+            ],
+            "en_value": "RETARDER OIL TEMPERATURE"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/automatic-retarder.jpg",
+            "es_value": "RETARDADOR AUTOMATICO",
+            "en_value": "RETARDER AUTOMATIC"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/retarder-overload.jpg",
+            "es_value": "SOBRECARGA DEL RETARDADOR",
+            "en_value": "RETARDER OVERLOAD"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/neumatic-start.jpg",
+            "es_value": "ARRANQUE NEUMATICO",
+            "en_value": "NEUMATIC START"
+        },
+        {
+            "imgUrl": "assets/images/simbologias/camion-minero/electronic-engine-injection.jpg",
+            "es_value": "INYECCION ELECTRONICA DEL MOTOR",
+            "en_value": "ENGINE ELECTRONIC INJECTION"
+        }
     ]
 }

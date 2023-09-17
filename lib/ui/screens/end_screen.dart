@@ -33,7 +33,7 @@ class _EndScreenState extends State<EndScreen> {
     if (widget.score == widget.totalItems) {
       message = 'Perfecto.';
       _confettiController =
-          ConfettiController(duration: const Duration(seconds: 5));
+          ConfettiController(duration: const Duration(seconds: 2));
       _confettiController.play();
     } else if (widget.score >= widget.totalItems / 2) {
       message = 'Masomenos.';
@@ -132,7 +132,7 @@ class _EndScreenState extends State<EndScreen> {
         ConfettiWidget(
           confettiController: _confettiController,
           blastDirection: pi / 2,
-          particleDrag: 0.1,
+          particleDrag: 0.3,
           blastDirectionality: BlastDirectionality.explosive,
           emissionFrequency: 0.05,
           gravity: 0.2,

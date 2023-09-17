@@ -31,7 +31,7 @@ class SimbologiaStartPopup extends StatelessWidget {
             Column(
               children: simbologiasData.keys.map((category) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all<Size>(
